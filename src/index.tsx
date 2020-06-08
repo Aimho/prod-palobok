@@ -3,15 +3,11 @@ import "core-js/es/set";
 
 import React from "react";
 import ReactDOM from "react-dom";
-import { IntlProvider } from "react-intl";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
 import { createGlobalStyle } from "styled-components";
 import { normalize } from "styled-normalize";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 import App from "./App";
-import locale from "./locale";
-import configureStore from "./store";
 import * as serviceWorker from "./serviceWorker";
 
 export const GlobalStyle = createGlobalStyle`
@@ -21,20 +17,28 @@ export const GlobalStyle = createGlobalStyle`
 
   * {
     font-family: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;
   }
+
+  b { font-weight: bold; }
+  strong { font-weight: 500; }
 `;
 
-const { store, persistor } = configureStore();
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#B41118",
+      // dark: will be calculated from palette.primary.main,
+      // contrastText: will be calculated to contrast with palette.primary.main
+    },
+  },
+});
 
 ReactDOM.render(
-  <IntlProvider locale="ko" messages={locale.ko}>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <GlobalStyle />
-        <App />
-      </PersistGate>
-    </Provider>
-  </IntlProvider>,
+  <ThemeProvider theme={theme}>
+    <GlobalStyle />
+    <App />
+  </ThemeProvider>,
   document.getElementById("root")
 );
 
