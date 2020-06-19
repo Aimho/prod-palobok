@@ -115,4 +115,34 @@ const StyledValueCard = styled.div`
   align-items: center;
 `;
 
-export { StyledMainBox, StyledContentBox, StyledCompanyCard, StyledValueCard };
+const StyledProductCard = styled.a.attrs((props: PropBackgroundImage) => ({
+  backgroundImage: props.backgroundImage || "none",
+}))`
+  width: 20%;
+  padding: 50px 34px;
+  color: #000;
+  background-color: #fff;
+  &:not(:last-child) {
+    border-right: 1px solid #d4d4d4;
+  }
+  .product-img {
+    background: url(${(props) => props.backgroundImage}) no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    min-height: 108px;
+    margin-bottom: 36px;
+  }
+  .desc {
+    margin-top: 4px;
+    color: #666;
+  }
+`;
+
+export {
+  StyledMainBox,
+  StyledContentBox,
+  StyledCompanyCard,
+  StyledValueCard,
+  StyledProductCard,
+};

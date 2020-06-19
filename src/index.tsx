@@ -11,8 +11,6 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
-
   ${normalize}
 
   * {
@@ -22,6 +20,13 @@ export const GlobalStyle = createGlobalStyle`
 
   b { font-weight: bold; }
   strong { font-weight: 500; }
+
+  body {
+    min-width: 1280px;
+    @media screen and (max-width: 768px ) {
+      min-width: auto;
+    }
+  }
 `;
 
 const theme = createMuiTheme({

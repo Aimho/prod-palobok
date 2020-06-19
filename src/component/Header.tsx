@@ -53,7 +53,7 @@ const Header = () => {
           <img
             onClick={() => linkTo("/")}
             className="brand-logo"
-            src={require("../img/brandLogo.png")}
+            src={require("../img/brand-logo-black.png")}
             alt="팔복"
           />
 

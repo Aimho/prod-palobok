@@ -7,6 +7,7 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
 import Header from "./component/Header";
+import Footer from "./component/Footer";
 import PageContainer from "./page";
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
       <React.StrictMode>
         <PageContainer />
       </React.StrictMode>
+
+      <Footer />
     </BrowserRouter>
   );
 }

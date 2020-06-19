@@ -7,6 +7,7 @@ import {
   StyledContentBox,
   StyledCompanyCard,
   StyledValueCard,
+  StyledProductCard,
 } from "./MainStyle";
 
 const Main = () => {
@@ -32,7 +33,7 @@ const Main = () => {
           <strong>더 순수하게 더 푸짐하게 더 깨끗하게</strong>
         </Typography>
 
-        <Container fixed>
+        <Container maxWidth={"lg"}>
           <Grid container justify="center" spacing={3}>
             <Grid item>
               <StyledCompanyCard
@@ -83,7 +84,7 @@ const Main = () => {
         backgroundImage={require("../img/main-value-banner.jpg")}
         textAlign={"left"}
       >
-        <Container fixed>
+        <Container maxWidth={"lg"}>
           <Grid container justify="center" spacing={3}>
             <Grid item sm={3}>
               <Typography variant="h6" color="primary">
@@ -160,17 +161,59 @@ const Main = () => {
         backgroundImage={require("../img/main-product-banner.jpg")}
         mask={true}
       >
-        <Container fixed>
-          <Typography variant="h6" style={{ color: "#fff" }}>
-            PRODUCT
-          </Typography>
-          <Typography
-            variant="h4"
-            className="sub-title"
-            style={{ color: "#fff" }}
-          >
+        <Container maxWidth={"lg"} style={{ color: "#fff" }}>
+          <Typography variant="h6">PRODUCT</Typography>
+          <Typography variant="h4" className="sub-title">
             <strong>팔복의 제품군</strong>
           </Typography>
+
+          <Grid container justify="center">
+            <StyledProductCard
+              backgroundImage={require("../img/main-product-sagol.png")}
+            >
+              <div className="product-img" />
+              <Typography variant="h6">사골진국</Typography>
+              <Typography variant="body2" className="desc">
+                Sagol Jinguk
+              </Typography>
+            </StyledProductCard>
+            <StyledProductCard
+              backgroundImage={require("../img/../img/main-product-dogani.png")}
+            >
+              <div className="product-img" />
+              <Typography variant="h6">도가니탕</Typography>
+              <Typography variant="body2" className="desc">
+                Dogani-Tang
+              </Typography>
+            </StyledProductCard>
+            <StyledProductCard
+              backgroundImage={require("../img/main-product-seolleong.png")}
+            >
+              <div className="product-img" />
+              <Typography variant="h6">설렁탕</Typography>
+              <Typography variant="body2" className="desc">
+                Seolleong-Tang
+              </Typography>
+            </StyledProductCard>
+            <StyledProductCard
+              backgroundImage={require("../img/main-product-ox.png")}
+            >
+              <div className="product-img" />
+              <Typography variant="h6">우족탕</Typography>
+              <Typography variant="body2" className="desc">
+                Ox Foot Soup
+              </Typography>
+            </StyledProductCard>
+            <StyledProductCard
+              backgroundImage={require("../img/main-product-sagol-large.png")}
+            >
+              <div className="product-img" />
+              <Typography variant="h6">사골 대형 포장팩</Typography>
+              <Typography variant="body2" className="desc">
+                Sagol Large Packing Pack
+              </Typography>
+            </StyledProductCard>
+          </Grid>
         </Container>
       </StyledContentBox>
     </main>
