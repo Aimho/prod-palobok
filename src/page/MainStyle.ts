@@ -1,16 +1,12 @@
 import styled from "styled-components";
 
-import { Box } from "@material-ui/core";
-
 interface PropBackgroundImage {
   backgroundImage?: string;
   mask?: boolean;
   textAlign?: string;
 }
 
-const StyledMaskBox = styled(Box).attrs((props: PropBackgroundImage) => ({
-  backgroundImage: props.backgroundImage || "none",
-  textAlign: props.textAlign || "center",
+const StyledMaskBox = styled.div.attrs((props: PropBackgroundImage) => ({
   mask: props.mask || false,
 }))`
   ${(props) =>
@@ -53,16 +49,20 @@ const StyledMainBox = styled(StyledMaskBox)`
 
 const StyledContentBox = styled(StyledMaskBox).attrs(
   (props: PropBackgroundImage) => ({
-    backgroundImage: props.backgroundImage || "none",
+    backgroundImage: props.backgroundImage || "",
     textAlign: props.textAlign || "center",
   })
 )`
   padding-top: 100px;
   padding-bottom: 120px;
   text-align: ${(props) => props.textAlign};
-  background: url(${(props) => props.backgroundImage}) no-repeat;
-  background-size: cover;
-  background-position: center;
+  ${(props) =>
+    props.backgroundImage &&
+    `
+      background: url(${props.backgroundImage}) no-repeat;
+      background-size: cover;
+      background-position: center;
+    `}
   .sub-title {
     font-size: 40px;
     margin-bottom: 40px;
@@ -70,15 +70,19 @@ const StyledContentBox = styled(StyledMaskBox).attrs(
 `;
 
 const StyledCompanyCard = styled.div.attrs((props: PropBackgroundImage) => ({
-  backgroundImage: props.backgroundImage || "none",
+  backgroundImage: props.backgroundImage || "",
 }))`
   position: relative;
   width: 326px;
   height: 350px;
   padding: 20px 30px;
-  background: url(${(props) => props.backgroundImage}) no-repeat;
-  background-size: cover;
-  background-position: center;
+  ${(props) =>
+    props.backgroundImage &&
+    `
+      background: url(${props.backgroundImage}) no-repeat;
+      background-size: cover;
+      background-position: center;
+    `}
   text-align: left;
   color: #fff;
   &::before {
