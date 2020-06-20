@@ -1,11 +1,34 @@
-import React, { useState, Fragment, MouseEvent } from "react";
+import React, { useState, MouseEvent } from "react";
 import styled from "styled-components";
 
-import { AppBar, Toolbar, Button, Menu, MenuItem } from "@material-ui/core";
-import { ChevronRight } from "@material-ui/icons";
+import {
+  AppBar,
+  Toolbar,
+  Button,
+  Menu,
+  MenuItem,
+  Hidden,
+} from "@material-ui/core";
+import { ChevronRight, MenuSharp } from "@material-ui/icons";
 
 import useRouter from "../hooks/useRouter";
 import { filterSameValue } from "../utils/filters";
+
+const StyledHeader = styled.header`
+  height: 80px;
+  @media screen and (max-width: 768px) {
+    height: 48px;
+  }
+  .appBar {
+    height: inherit;
+    background-color: #fff;
+  }
+  .toolbar {
+    @media screen and (max-width: 768px) {
+      min-height: 48px;
+    }
+  }
+`;
 
 const StyledToolbar = styled(Toolbar)`
   max-width: 1018px;
@@ -16,6 +39,10 @@ const StyledToolbar = styled(Toolbar)`
     width: 115px;
     height: 55px;
     margin-right: auto;
+    @media screen and (max-width: 768px) {
+      width: 63px;
+      height: 30px;
+    }
   }
   a,
   button {
@@ -27,8 +54,6 @@ const StyledToolbar = styled(Toolbar)`
 
 const Header = () => {
   const { linkTo } = useRouter();
-
-  const headerHeight = 80;
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [key, setTargetKey] = useState("");
@@ -43,12 +68,8 @@ const Header = () => {
   };
 
   return (
-    <Fragment>
-      <div style={{ height: headerHeight }} />
-      <AppBar
-        position="fixed"
-        style={{ height: headerHeight, backgroundColor: "#fff" }}
-      >
+    <StyledHeader>
+      <AppBar className="appBar" position="fixed">
         <StyledToolbar className="toolbar">
           <img
             onClick={() => linkTo("/")}
@@ -57,33 +78,41 @@ const Header = () => {
             alt="팔복"
           />
 
-          {MenuBtn("팔복", (e) => handleClick(e, "palbok"))}
-          {MenuBtn("제품", (e) => handleClick(e, "product"))}
-          {MenuBtn("소식", (e) => handleClick(e, "news"))}
-          <Button
-            color="primary"
-            className="nav-btn"
-            href="https://www.palbok.com"
-            target="_blank"
-            endIcon={<ChevronRight />}
-            variant="text"
-          >
-            팔복몰
-          </Button>
+          <Hidden smDown>
+            {MenuBtn("팔복", (e) => handleClick(e, "palbok"))}
+            {MenuBtn("제품", (e) => handleClick(e, "product"))}
+            {MenuBtn("소식", (e) => handleClick(e, "news"))}
+            <Button
+              color="primary"
+              className="nav-btn"
+              href="https://www.palbok.com"
+              target="_blank"
+              endIcon={<ChevronRight />}
+              variant="text"
+            >
+              팔복몰
+            </Button>
 
-          <Menu
-            id="menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-            style={{ marginTop: "45px" }}
-          >
-            {MenuItems(key, handleClose)}
-          </Menu>
+            <Menu
+              id="menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+              style={{ marginTop: "45px" }}
+            >
+              {MenuItems(key, handleClose)}
+            </Menu>
+          </Hidden>
+
+          <Hidden mdUp>
+            <Button size="small">
+              <MenuSharp fontSize="default" />
+            </Button>
+          </Hidden>
         </StyledToolbar>
       </AppBar>
-    </Fragment>
+    </StyledHeader>
   );
 };
 

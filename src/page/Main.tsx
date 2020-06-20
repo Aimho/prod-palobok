@@ -13,7 +13,7 @@ import {
 const Main = () => {
   return (
     <main>
-      <StyledMainBox mask={true}>
+      <StyledMainBox mask={"true"}>
         <Typography className="title" variant="h3">
           <b>진국 1450℃의 비밀</b>
         </Typography>
@@ -26,7 +26,7 @@ const Main = () => {
       </StyledMainBox>
 
       <StyledContentBox>
-        <Typography variant="h6" color="primary">
+        <Typography variant="h6" color="primary" className="title">
           COMPANY
         </Typography>
         <Typography variant="h4" className="sub-title">
@@ -35,7 +35,7 @@ const Main = () => {
 
         <Container maxWidth={"lg"}>
           <Grid container justify="center" spacing={3}>
-            <Grid item>
+            <Grid item className="grid-item">
               <StyledCompanyCard
                 backgroundImage={require("../img/main-company-card-1.jpg")}
               >
@@ -49,7 +49,7 @@ const Main = () => {
               </StyledCompanyCard>
             </Grid>
 
-            <Grid item>
+            <Grid item className="grid-item">
               <StyledCompanyCard
                 backgroundImage={require("../img/main-company-card-2.jpg")}
               >
@@ -63,7 +63,7 @@ const Main = () => {
               </StyledCompanyCard>
             </Grid>
 
-            <Grid item>
+            <Grid item className="grid-item">
               <StyledCompanyCard
                 backgroundImage={require("../img/main-company-card-3.jpg")}
               >
@@ -87,7 +87,7 @@ const Main = () => {
         <Container maxWidth={"lg"}>
           <Grid container justify="center" spacing={3}>
             <Grid item sm={3}>
-              <Typography variant="h6" color="primary">
+              <Typography variant="h6" color="primary" className="title">
                 VALUE
               </Typography>
               <Typography variant="h4" className="sub-title">
@@ -159,7 +159,7 @@ const Main = () => {
 
       <StyledContentBox
         backgroundImage={require("../img/main-product-banner.jpg")}
-        mask={true}
+        mask={"true"}
       >
         <Container maxWidth={"lg"} style={{ color: "#fff" }}>
           <Typography variant="h6">PRODUCT</Typography>

@@ -2,15 +2,13 @@ import styled from "styled-components";
 
 interface PropBackgroundImage {
   backgroundImage?: string;
-  mask?: boolean;
+  mask?: string;
   textAlign?: string;
 }
 
 const StyledMaskBox = styled.div.attrs((props: PropBackgroundImage) => ({
-  mask: props.mask || false,
-}))`
-  ${(props) =>
-    props.mask
+  mask:
+    props.mask === "true"
       ? `
         position: relative;
         &::before {
@@ -26,7 +24,9 @@ const StyledMaskBox = styled.div.attrs((props: PropBackgroundImage) => ({
           position: relative;
         }
       `
-      : ""}
+      : "",
+}))`
+  ${(props) => props.mask}
 `;
 
 const StyledMainBox = styled(StyledMaskBox)`
@@ -38,12 +38,25 @@ const StyledMainBox = styled(StyledMaskBox)`
   background-position: center;
   width: 100%;
   color: #fff;
+  @media screen and (max-width: 768px) {
+    padding-top: 60px;
+    padding-bottom: 70px;
+  }
+
   .title {
     position: relative;
     margin-bottom: 16px;
+    @media screen and (max-width: 768px) {
+      font-size: 20px;
+      line-height: 30px;
+    }
   }
   .desc {
     position: relative;
+    @media screen and (max-width: 768px) {
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 `;
 
@@ -63,9 +76,31 @@ const StyledContentBox = styled(StyledMaskBox).attrs(
       background-size: cover;
       background-position: center;
     `}
+  @media screen and (max-width: 768px) {
+    padding-top: 34px;
+    padding-bottom: 40px;
+  }
+
+  .title {
+    @media screen and (max-width: 768px) {
+      font-size: 12px;
+      line-height: 17px;
+    }
+  }
   .sub-title {
     font-size: 40px;
     margin-bottom: 40px;
+    @media screen and (max-width: 768px) {
+      font-size: 20px;
+      line-height: 30px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .grid-item {
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
   }
 `;
 
@@ -85,6 +120,11 @@ const StyledCompanyCard = styled.div.attrs((props: PropBackgroundImage) => ({
     `}
   text-align: left;
   color: #fff;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    height: 145px;
+  }
+
   &::before {
     position: absolute;
     top: 0;
@@ -98,6 +138,14 @@ const StyledCompanyCard = styled.div.attrs((props: PropBackgroundImage) => ({
       rgba(0, 0, 0, 0.27951) 41.84%,
       rgba(0, 0, 0, 0) 100%
     );
+    @media screen and (max-width: 768px) {
+      background: linear-gradient(
+        180deg,
+        #000000 0%,
+        rgba(0, 0, 0, 0.27951) 41.84%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
   }
   .MuiTypography-root {
     position: relative;
