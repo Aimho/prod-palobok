@@ -1,162 +1,174 @@
 import React, { useState, MouseEvent } from "react";
-import styled from "styled-components";
-
-import {
-  AppBar,
-  Toolbar,
-  Button,
-  Menu,
-  MenuItem,
-  Hidden,
-} from "@material-ui/core";
-import { ChevronRight, MenuSharp } from "@material-ui/icons";
 
 import useRouter from "../hooks/useRouter";
-import { filterSameValue } from "../utils/filters";
-
-const StyledHeader = styled.header`
-  height: 80px;
-  @media screen and (max-width: 768px) {
-    height: 48px;
-  }
-  .appBar {
-    height: inherit;
-    background-color: #fff;
-  }
-  .toolbar {
-    @media screen and (max-width: 768px) {
-      min-height: 48px;
-    }
-  }
-`;
-
-const StyledToolbar = styled(Toolbar)`
-  max-width: 1018px;
-  width: 100%;
-  margin: auto;
-  .brand-logo {
-    cursor: pointer;
-    width: 115px;
-    height: 55px;
-    margin-right: auto;
-    @media screen and (max-width: 768px) {
-      width: 63px;
-      height: 30px;
-    }
-  }
-  a,
-  button {
-    margin-left: 100px;
-    font-size: 20px;
-    font-weight: 500;
-  }
-`;
+import * as S from "./HeaderStyle";
+import * as Icon from "../icon";
 
 const Header = () => {
+  // data
+  const menuList: any = {
+    팔복: [
+      { label: "회사소개", link: "/" },
+      { label: "진국스토리", link: "/" },
+      { label: "매장안내", link: "/" },
+    ],
+    제품: [
+      { label: "제품", link: "/" },
+      { label: "진국플랜트", link: "/" },
+    ],
+    소식: [
+      { label: "공지사항", link: "/" },
+      { label: "이벤트", link: "/" },
+      { label: "고객문의", link: "/" },
+    ],
+  };
+
+  // hooks
   const { linkTo } = useRouter();
+  const [target, setTarget] = useState("");
+  const [anchorOffset, setAnchorOffset] = useState<{
+    left?: number;
+    top?: number;
+  }>({});
+  const [isOpen, setIsOpen] = useState(false);
 
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [key, setTargetKey] = useState("");
-
-  const handleClick = (event: MouseEvent<HTMLButtonElement>, key: string) => {
-    setTargetKey(key);
-    setAnchorEl(event.currentTarget);
+  // functions
+  const handleClick = (
+    event: MouseEvent<HTMLButtonElement>,
+    target: string
+  ) => {
+    setAnchorOffset({
+      left: event.currentTarget.offsetLeft,
+      top: event.currentTarget.offsetTop + 30,
+    });
+    setTarget(target);
   };
+
   const handleClose = () => {
-    setTargetKey("");
-    setAnchorEl(null);
+    setAnchorOffset({});
+    setTarget("");
   };
 
-  return (
-    <StyledHeader>
-      <AppBar className="appBar" position="fixed">
-        <StyledToolbar className="toolbar">
-          <img
-            onClick={() => linkTo("/")}
-            className="brand-logo"
-            src={require("../img/brand-logo-black.png")}
-            alt="팔복"
-          />
+  // components
+  const NavMenu = () => (
+    <React.Fragment>
+      {Object.keys(menuList).map((item) => (
+        <button
+          className="text"
+          onClick={(e) => handleClick(e, item)}
+          key={item}
+        >
+          {item}
+        </button>
+      ))}
 
-          <Hidden smDown>
-            {MenuBtn("팔복", (e) => handleClick(e, "palbok"))}
-            {MenuBtn("제품", (e) => handleClick(e, "product"))}
-            {MenuBtn("소식", (e) => handleClick(e, "news"))}
-            <Button
-              color="primary"
-              className="nav-btn"
+      <a
+        className="market"
+        href="https://www.palbok.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        팔복몰 <Icon.ArrowRight />
+      </a>
+    </React.Fragment>
+  );
+
+  const DropdownMenu = () => {
+    if (!anchorOffset.left || !anchorOffset.top || !target || isOpen)
+      return null;
+
+    return (
+      <div
+        className="menu"
+        style={{ left: anchorOffset.left, top: anchorOffset.top }}
+        onMouseLeave={handleClose}
+      >
+        {menuList[target].map(
+          (item: { label: string; link: string }, index: number) => (
+            <a href={item.link} key={index}>
+              {item.label}
+            </a>
+          )
+        )}
+      </div>
+    );
+  };
+
+  const ExpandMenuItems = () => {
+    const menuListKeys = Object.keys(menuList);
+    console.log(
+      menuListKeys.map((key) =>
+        menuList[key].map((item: { label: string; link: string }) => item)
+      )
+    );
+
+    return (
+      <React.Fragment>
+        {menuListKeys.map((key) => {
+          const isActive = key === target;
+          const className = isActive ? "active" : "";
+          const onClick = () => (isActive ? setTarget("") : setTarget(key));
+          const ExpandIcon = () =>
+            isActive ? <Icon.ExpandLess /> : <Icon.ExpandMore />;
+          return (
+            <S.MenuItem key={key} className={className} onClick={onClick}>
+              <p>{key}</p>
+              <ExpandIcon />
+              {isActive &&
+                menuList[target].map(
+                  (item: { label: string; link: string }, index: number) => (
+                    <a className="sub-menu" href={item.link} key={index}>
+                      {item.label}
+                    </a>
+                  )
+                )}
+            </S.MenuItem>
+          );
+        })}
+      </React.Fragment>
+    );
+  };
+
+  // render
+  return (
+    <S.Header>
+      <S.Nav>
+        <img
+          src={require("../img/brand-logo-black.png")}
+          alt="팔복"
+          onClick={() => linkTo("/")}
+        />
+
+        <S.ButtonGroup>
+          <NavMenu />
+          <DropdownMenu />
+          <Icon.Menu className="mobile" onClick={() => setIsOpen(true)} />
+        </S.ButtonGroup>
+      </S.Nav>
+
+      <S.MobileMenuContainer className={isOpen ? "active" : ""}>
+        <S.Backdrop className="mask" />
+
+        <S.MenuList>
+          <S.MenuItem className="size-large">
+            <p>메뉴</p>
+            <Icon.Close onClick={() => setIsOpen(false)} />
+          </S.MenuItem>
+          <ExpandMenuItems />
+          <S.MenuItem>
+            <a
+              className="market"
               href="https://www.palbok.com"
               target="_blank"
-              endIcon={<ChevronRight />}
-              variant="text"
+              rel="noopener noreferrer"
             >
-              팔복몰
-            </Button>
-
-            <Menu
-              id="menu"
-              anchorEl={anchorEl}
-              keepMounted
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-              style={{ marginTop: "45px" }}
-            >
-              {MenuItems(key, handleClose)}
-            </Menu>
-          </Hidden>
-
-          <Hidden mdUp>
-            <Button size="small">
-              <MenuSharp fontSize="default" />
-            </Button>
-          </Hidden>
-        </StyledToolbar>
-      </AppBar>
-    </StyledHeader>
+              팔복몰 <Icon.ArrowRight />
+            </a>
+          </S.MenuItem>
+        </S.MenuList>
+      </S.MobileMenuContainer>
+    </S.Header>
   );
 };
 
 export default Header;
-
-const MenuBtn = (
-  label: string,
-  handleClick: (event: MouseEvent<HTMLButtonElement>) => void
-) => (
-  <Button
-    aria-controls="menu"
-    aria-haspopup="true"
-    className="nav-btn"
-    onClick={handleClick}
-    variant="text"
-  >
-    {label}
-  </Button>
-);
-
-const MenuItems = (key: string, handleClose: () => void) => {
-  const { linkTo } = useRouter();
-
-  const onClick = (path: string) => {
-    linkTo(path);
-    handleClose();
-  };
-
-  const items = [
-    { key: "palbok", label: "회사소개", path: "/" },
-    { key: "palbok", label: "진국스토리", path: "/" },
-    { key: "palbok", label: "매장안내", path: "/" },
-    { key: "product", label: "제품", path: "/" },
-    { key: "product", label: "진국플랜트", path: "/" },
-    { key: "news", label: "공지사항", path: "/" },
-    { key: "news", label: "이벤트", path: "/" },
-    { key: "news", label: "고객문의", path: "/" },
-  ];
-
-  const filterItems = filterSameValue(items, "key", key);
-
-  return filterItems.map((item, index) => (
-    <MenuItem key={index} onClick={() => onClick(item.path)}>
-      {item.label}
-    </MenuItem>
-  ));
-};

@@ -1,35 +1,6 @@
 import styled from "styled-components";
 
-interface PropBackgroundImage {
-  backgroundImage?: string;
-  mask?: string;
-  textAlign?: string;
-}
-
-const StyledMaskBox = styled.div.attrs((props: PropBackgroundImage) => ({
-  mask:
-    props.mask === "true"
-      ? `
-        position: relative;
-        &::before {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          content: "";
-          background-color: rgba(0, 0, 0, 0.3);
-        }
-        * {
-          position: relative;
-        }
-      `
-      : "",
-}))`
-  ${(props) => props.mask}
-`;
-
-const StyledMainBox = styled(StyledMaskBox)`
+const Banner = styled.section`
   padding-top: 184px;
   padding-bottom: 240px;
   text-align: center;
@@ -43,16 +14,21 @@ const StyledMainBox = styled(StyledMaskBox)`
     padding-bottom: 70px;
   }
 
-  .title {
+  h1 {
     position: relative;
     margin-bottom: 16px;
+    font-size: 48px;
+    line-height: 70px;
     @media screen and (max-width: 768px) {
       font-size: 20px;
       line-height: 30px;
     }
   }
-  .desc {
+  h3 {
     position: relative;
+    font-size: 24px;
+    line-height: 35px;
+    font-weight: 500;
     @media screen and (max-width: 768px) {
       font-size: 14px;
       line-height: 20px;
@@ -60,55 +36,66 @@ const StyledMainBox = styled(StyledMaskBox)`
   }
 `;
 
-const StyledContentBox = styled(StyledMaskBox).attrs(
-  (props: PropBackgroundImage) => ({
-    backgroundImage: props.backgroundImage || "",
-    textAlign: props.textAlign || "center",
-  })
-)`
+const Section = styled.section`
   padding-top: 100px;
   padding-bottom: 120px;
-  text-align: ${(props) => props.textAlign};
-  ${(props) =>
-    props.backgroundImage &&
-    `
-      background: url(${props.backgroundImage}) no-repeat;
-      background-size: cover;
-      background-position: center;
-    `}
+  text-align: center;
   @media screen and (max-width: 768px) {
     padding-top: 34px;
     padding-bottom: 40px;
   }
-
-  .title {
+  h4 {
+    font-size: 20px;
+    line-height: 30px;
+    color: #b41118;
+    font-weight: inherit;
+    font-weight: 500;
     @media screen and (max-width: 768px) {
       font-size: 12px;
       line-height: 17px;
     }
   }
-  .sub-title {
+  h2 {
     font-size: 40px;
+    line-height: 58px;
+    font-weight: inherit;
     margin-bottom: 40px;
+    font-weight: 500;
     @media screen and (max-width: 768px) {
       font-size: 20px;
       line-height: 30px;
       margin-bottom: 20px;
     }
   }
+`;
 
-  .grid-item {
+const Container = styled.div`
+  max-width: 1140px;
+  margin: auto;
+  &.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     @media screen and (max-width: 768px) {
-      width: 100%;
+      display: block;
+      padding: 0px 15px;
     }
+  }
+  &.size-large {
+    max-width: 1280px;
   }
 `;
 
-const StyledCompanyCard = styled.div.attrs((props: PropBackgroundImage) => ({
+interface PropBackgroundImage {
+  backgroundImage?: string;
+  textAlign?: string;
+}
+
+const CompanyCard = styled.div.attrs((props: PropBackgroundImage) => ({
   backgroundImage: props.backgroundImage || "",
 }))`
   position: relative;
-  width: 326px;
+  width: calc(33.333% - (40px / 3));
   height: 350px;
   padding: 20px 30px;
   ${(props) =>
@@ -123,6 +110,9 @@ const StyledCompanyCard = styled.div.attrs((props: PropBackgroundImage) => ({
   @media screen and (max-width: 768px) {
     width: 100%;
     height: 145px;
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
   }
 
   &::before {
@@ -147,9 +137,26 @@ const StyledCompanyCard = styled.div.attrs((props: PropBackgroundImage) => ({
       );
     }
   }
-  .MuiTypography-root {
+
+  p {
     position: relative;
-    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 20px;
+    @media screen and (max-width: 768px) {
+      font-size: 14px;
+      line-height: 20px;
+    }
+    &.title {
+      font-size: 32px;
+      line-height: 46px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      @media screen and (max-width: 768px) {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 30px;
+      }
+    }
   }
 `;
 
@@ -192,9 +199,10 @@ const StyledProductCard = styled.a.attrs((props: PropBackgroundImage) => ({
 `;
 
 export {
-  StyledMainBox,
-  StyledContentBox,
-  StyledCompanyCard,
+  Banner,
+  Section,
+  Container,
+  CompanyCard,
   StyledValueCard,
   StyledProductCard,
 };

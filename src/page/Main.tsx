@@ -1,30 +1,64 @@
 import React from "react";
 
-import { Container, Typography, Grid } from "@material-ui/core";
-
-import {
-  StyledMainBox,
-  StyledContentBox,
-  StyledCompanyCard,
-  StyledValueCard,
-  StyledProductCard,
-} from "./MainStyle";
+import * as S from "./MainStyle";
 
 const Main = () => {
+  const Card = () => {
+    const companyList = [
+      {
+        img: require("../img/main-company-card-1.jpg"),
+        title: "since 1992",
+        description: [
+          "1992년 종로구 청진동에로 설렁탕 가게로",
+          "시작해 대한민국 최초로 사골진국팩 생산",
+        ],
+      },
+      {
+        img: require("../img/main-company-card-2.jpg"),
+        title: "Business",
+        description: [
+          "가정에서는 간편하게 먹는 든든한 한 끼,",
+          "식당 및 단체 급식소에는 대량 공급 가능",
+        ],
+      },
+      {
+        img: require("../img/main-company-card-3.jpg"),
+        title: "400만팩 돌파",
+        description: ["진국, 도가니 포장상품", "4,000,000팩 판매 돌파"],
+      },
+    ];
+
+    return (
+      <S.Container className="row">
+        {companyList.map((item, index) => (
+          <S.CompanyCard key={index} backgroundImage={item.img}>
+            <p className="title">{item.title}</p>
+            {item.description.map((desc, index) => (
+              <p key={index}>{desc}</p>
+            ))}
+          </S.CompanyCard>
+        ))}
+      </S.Container>
+    );
+  };
+
   return (
     <main>
-      <StyledMainBox mask={"true"}>
-        <Typography className="title" variant="h3">
-          <b>진국 1450℃의 비밀</b>
-        </Typography>
-        <Typography className="desc" variant="h5" component="span">
-          <strong>
-            팔복진국은 1450℃의 화덕에서 <br /> 10시간 이상 끓여 진국의 깊은 맛을
-            냅니다.
-          </strong>
-        </Typography>
-      </StyledMainBox>
+      <S.Banner className="mask">
+        <h1>진국 1450℃의 비밀</h1>
+        <h3>
+          팔복진국은 1450℃의 화덕에서 <br />
+          10시간 이상 끓여 진국의 깊은 맛을 냅니다.
+        </h3>
+      </S.Banner>
 
+      <S.Section>
+        <h4>COMPANY</h4>
+        <h2>더 순수하게 더 푸짐하게 더 깨끗하게</h2>
+        <Card />
+      </S.Section>
+
+      {/*
       <StyledContentBox>
         <Typography variant="h6" color="primary" className="title">
           COMPANY
@@ -216,6 +250,7 @@ const Main = () => {
           </Grid>
         </Container>
       </StyledContentBox>
+     */}
     </main>
   );
 };

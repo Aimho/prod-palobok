@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { Grid, Typography } from "@material-ui/core";
-
 const StyledFooter = styled.div`
   width: 100%;
   background: #323232;
@@ -14,7 +12,7 @@ const StyledFooter = styled.div`
 
 const Footer = () => (
   <StyledFooter>
-    <Grid
+    {/* <Grid
       container
       wrap={"wrap"}
       spacing={3}
@@ -49,6 +47,7 @@ const Footer = () => (
         <Contact />
       </Grid>
     </Grid>
+   */}
   </StyledFooter>
 );
 
@@ -87,30 +86,30 @@ const SiteMap = () => {
 };
 
 /** Contact 스타일 */
-const StyledContact = styled(Typography)`
-  font-size: 14px;
-  line-height: 24px;
-  span {
-    width: 64px;
-    display: inline-block;
-  }
-`;
+// const StyledContact = styled(Typography)`
+//   font-size: 14px;
+//   line-height: 24px;
+//   span {
+//     width: 64px;
+//     display: inline-block;
+//   }
+// `;
 
 /** Contact 컴포넌트 */
-const Contact = () => {
-  const data = [
-    { title: "TEL", detail: "1577-0688" },
-    { title: "FAX", detail: "02-488-6488" },
-    { title: "E-MAIL", detail: "palbok@palbok.com" },
-  ];
-  return (
-    <React.Fragment>
-      {data.map((item, index) => (
-        <StyledContact key={index} variant="body2">
-          <span>{item.title}</span>
-          {item.detail}
-        </StyledContact>
-      ))}
-    </React.Fragment>
-  );
-};
+// const Contact = () => {
+//   const data = [
+//     { title: "TEL", detail: "1577-0688" },
+//     { title: "FAX", detail: "02-488-6488" },
+//     { title: "E-MAIL", detail: "palbok@palbok.com" },
+//   ];
+//   return (
+//     <React.Fragment>
+//       {data.map((item, index) => (
+//         <StyledContact key={index} variant="body2">
+//           <span>{item.title}</span>
+//           {item.detail}
+//         </StyledContact>
+//       ))}
+//     </React.Fragment>
+//   );
+// };
