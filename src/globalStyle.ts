@@ -59,6 +59,19 @@ body {
 .full-width {
   width: 100%;
 }
+
+.visible-desktop {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.visible-mobile {
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+}
 `;
 
 export default GlobalStyle;

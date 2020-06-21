@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import * as S from "./style";
 import Introduce from "./Introduce";
+import Story from "./Story";
+
 import useRouter from "../../hooks/useRouter";
 
 const Brand = () => {
@@ -38,6 +40,7 @@ const Brand = () => {
   const Content = () => {
     if (!params.type) return null;
     if (params.type.toLowerCase() === "introduce") return <Introduce />;
+    if (params.type.toLowerCase() === "story") return <Story />;
     return null;
   };
 
@@ -45,7 +48,6 @@ const Brand = () => {
     <main>
       <S.Banner>팔복</S.Banner>
       <Snb />
-
       <Content />
     </main>
   );

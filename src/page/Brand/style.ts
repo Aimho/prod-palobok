@@ -83,6 +83,25 @@ const Section = styled.section`
   }
 `;
 
+const SubTitleSection = styled(Section)`
+  h1 {
+    margin-bottom: 15px;
+    @media screen and (max-width: 768px) {
+      margin-bottom: 4px;
+    }
+  }
+  p.sub-title {
+    font-size: 16px;
+    line-height: 24px;
+    color: #474747;
+    margin-bottom: 40px;
+    @media screen and (max-width: 768px) {
+      font-size: 12px;
+      line-height: 18px;
+      margin-bottom: 20px;
+    }
+  }
+`;
 interface PropsTabNav {
   itemWidthPer: number;
 }
@@ -172,6 +191,75 @@ const GreetingTab = styled(TabContent)`
 
 const HistoryTab = styled(TabContent)`
   margin: 0 -23px;
+  @media screen and (max-width: 768px) {
+    margin: 0;
+  }
+  h2 {
+    @media screen and (max-width: 768px) {
+      max-width: 192px;
+      margin: auto;
+    }
+  }
 `;
 
-export { Banner, Container, Snb, Section, TabNav, GreetingTab, HistoryTab };
+const SecretTab = styled(TabContent)`
+  margin: 0 -23px;
+  @media screen and (max-width: 768px) {
+    margin: 0;
+  }
+`;
+
+const StoryContent = styled.div`
+  max-width: 1140px;
+  margin: auto;
+  padding: 0 50px;
+  @media screen and (max-width: 768px) {
+    padding: 0 15px;
+  }
+  .carousel .slide {
+    background: #fff;
+  }
+  .carousel .control-next.control-arrow:before {
+    border-left: solid 20px #000;
+    @media screen and (max-width: 768px) {
+      border-left: solid 10px #000;
+    }
+  }
+  .carousel .control-prev.control-arrow:before {
+    border-right: solid 20px #000;
+    @media screen and (max-width: 768px) {
+      border-right: solid 10px #000;
+    }
+  }
+  .carousel.carousel-slider .control-arrow {
+    padding: 20px;
+    @media screen and (max-width: 768px) {
+      padding: 10px;
+    }
+  }
+  .carousel .control-arrow:before,
+  .carousel.carousel-slider .control-arrow:before,
+  .carousel .control-arrow:before,
+  .carousel.carousel-slider .control-arrow:before {
+    border-top-width: 20px;
+    border-bottom-width: 20px;
+    @media screen and (max-width: 768px) {
+      border-top-width: 10px;
+      border-bottom-width: 10px;
+    }
+  }
+`;
+
+export {
+  Banner,
+  Container,
+  Snb,
+  Section,
+  SubTitleSection,
+  TabNav,
+  TabContent,
+  GreetingTab,
+  HistoryTab,
+  SecretTab,
+  StoryContent,
+};

@@ -28,7 +28,7 @@ const Introduce = () => {
     if (target === tabList[0]) {
       return (
         <S.GreetingTab>
-          <h2>“더 순수하게 더 푸짐하게 더 깨끗하게”</h2>
+          <h2>더 순수하게 더 푸짐하게 더 깨끗하게</h2>
           <img
             className="full-width"
             src={require("../../img/brand-introduce-1.jpg")}
@@ -74,20 +74,42 @@ const Introduce = () => {
           <h2>
             1992년부터 지금까지 팔복은 항상 <span>성장하는 기업</span>입니다.
           </h2>
+          <img
+            src={require("../../img/brand-history-1.png")}
+            alt="연혁"
+            className="full-width visible-desktop"
+          />
         </S.HistoryTab>
+      );
+    }
+    if (target === tabList[2]) {
+      return (
+        <S.SecretTab>
+          <h2>더 순수하게 더 푸짐하게 더 깨끗하게</h2>
+          <img
+            src={require("../../img/brand-introduce-3.jpg")}
+            alt="팔복만의 특별함"
+            className="full-width visible-desktop"
+          />
+          <img
+            src={require("../../img/brand-introduce-3-mobile.jpg")}
+            alt="팔복만의 특별함"
+            className="full-width visible-mobile"
+          />
+        </S.SecretTab>
       );
     }
     return null;
   };
 
   return (
-    <S.Container>
-      <S.Section>
+    <S.Section>
+      <S.Container>
         <h1>회사소개</h1>
         <TabNav />
         <TabContent />
-      </S.Section>
-    </S.Container>
+      </S.Container>
+    </S.Section>
   );
 };
 
