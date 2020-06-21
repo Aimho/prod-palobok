@@ -15,6 +15,7 @@ const Footer = styled.footer`
 const Container = styled.section`
   max-width: 1140px;
   margin: auto;
+  padding: 0 30px;
 
   display: grid;
   grid-template-columns:

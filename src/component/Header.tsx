@@ -1,4 +1,5 @@
 import React, { useState, MouseEvent } from "react";
+import { Link } from "react-router-dom";
 
 import useRouter from "../hooks/useRouter";
 import * as S from "./HeaderStyle";
@@ -85,9 +86,9 @@ const Header = () => {
       >
         {menuList[target].map(
           (item: { label: string; link: string }, index: number) => (
-            <a href={item.link} key={index}>
+            <Link to={item.link} key={index}>
               {item.label}
-            </a>
+            </Link>
           )
         )}
       </div>
@@ -96,11 +97,6 @@ const Header = () => {
 
   const ExpandMenuItems = () => {
     const menuListKeys = Object.keys(menuList);
-    console.log(
-      menuListKeys.map((key) =>
-        menuList[key].map((item: { label: string; link: string }) => item)
-      )
-    );
 
     return (
       <React.Fragment>
@@ -117,9 +113,9 @@ const Header = () => {
               {isActive &&
                 menuList[target].map(
                   (item: { label: string; link: string }, index: number) => (
-                    <a className="sub-menu" href={item.link} key={index}>
+                    <Link className="sub-menu" to={item.link} key={index}>
                       {item.label}
-                    </a>
+                    </Link>
                   )
                 )}
             </S.MenuItem>

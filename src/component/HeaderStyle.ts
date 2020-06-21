@@ -10,7 +10,7 @@ const Header = styled.header`
 
 const Nav = styled.nav`
   position: relative;
-  padding: 12px 0;
+  padding: 12px 30px;
   max-width: 1140px;
   margin: auto;
   display: flex;

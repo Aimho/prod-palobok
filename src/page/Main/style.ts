@@ -4,7 +4,7 @@ const Banner = styled.section`
   padding-top: 184px;
   padding-bottom: 240px;
   text-align: center;
-  background: url(${require("../img/main-banner.jpg")}) no-repeat;
+  background: url(${require("../../img/main-banner.jpg")}) no-repeat;
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -72,6 +72,7 @@ const Section = styled.section`
 const Container = styled.div`
   max-width: 1140px;
   margin: auto;
+  padding: 0 30px;
   &.row {
     display: flex;
     @media screen and (max-width: 768px) {
@@ -84,12 +85,12 @@ const Container = styled.div`
   }
 `;
 
-interface PropImage {
+interface PropsImage {
   image?: string;
   textAlign?: string;
 }
 
-const CompanyCard = styled.div.attrs((props: PropImage) => ({
+const CompanyCard = styled.div.attrs((props: PropsImage) => ({
   image: props.image || "",
 }))`
   position: relative;
@@ -159,7 +160,7 @@ const CompanyCard = styled.div.attrs((props: PropImage) => ({
 `;
 
 const ValueSection = styled(Section)`
-  background: url(${require("../img/main-value-banner.jpg")}) no-repeat;
+  background: url(${require("../../img/main-value-banner.jpg")}) no-repeat;
   background-size: cover;
   background-position: center;
   .title {
@@ -204,13 +205,13 @@ const ValueCard = styled.div`
 `;
 
 const ProductSection = styled(Section)`
-  background: url(${require("../img/main-product-banner.jpg")}) no-repeat;
+  background: url(${require("../../img/main-product-banner.jpg")}) no-repeat;
   background-size: cover;
   background-position: center;
   color: #fff;
   @media screen and (max-width: 768px) {
     padding-top: 40px;
-    background-image: url(${require("../img/main-product-banner-mobile.jpg")});
+    background-image: url(${require("../../img/main-product-banner-mobile.jpg")});
     background-size: 100% 110px;
     background-position: top;
     padding-bottom: 0px;
@@ -238,7 +239,7 @@ const ProductSection = styled(Section)`
   }
 `;
 
-const ProductCard = styled.a.attrs((props: PropImage) => ({
+const ProductCard = styled.a.attrs((props: PropsImage) => ({
   image: props.image || "none",
 }))`
   width: 20%;

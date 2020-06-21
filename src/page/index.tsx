@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch, RouteProps } from "react-router-dom";
 
 import Main from "./Main";
+import Brand from "./Brand";
 
 const Container = () => (
   <Switch>
@@ -16,4 +17,5 @@ export default Container;
 /** route settings */
 export const routes: RouteProps[] = [
   { path: "/", component: Main, exact: true },
+  { path: "/brand/:type", component: Brand, exact: true },
 ];

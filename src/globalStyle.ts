@@ -10,7 +10,10 @@ ${normalize}
 }
 
 button {
+  border: 0px;
+  background-color: transparent;
   cursor: pointer;
+
   &:focus {
     outline: 0px;
   }
@@ -19,18 +22,11 @@ button {
     background-color: transparent;
     border: 0px;
     padding: 0px;
-
-    &:hover {
-      font-weight: bold;
-    }
   }
 }
 
 a {
   text-decoration: none;
-  &:hover {
-    font-weight: bold;
-  }
 }
 
 h1, h2, h3, h4, h5, h6, p, span {
@@ -58,6 +54,10 @@ body {
     content: "";
     background-color: rgba(0, 0, 0, 0.3);
   }
+}
+
+.full-width {
+  width: 100%;
 }
 `;
 

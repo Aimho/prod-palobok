@@ -1,14 +1,14 @@
 import React from "react";
 
-import * as S from "./MainStyle";
-import * as Icon from "../icon";
+import * as S from "./style";
+import * as Icon from "../../icon";
 
 const Main = () => {
   // components
   const CompanyCard = () => {
     const companyList = [
       {
-        img: require("../img/main-company-card-1.jpg"),
+        img: require("../../img/main-company-card-1.jpg"),
         title: "since 1992",
         description: [
           "1992년 종로구 청진동에로 설렁탕 가게로",
@@ -16,7 +16,7 @@ const Main = () => {
         ],
       },
       {
-        img: require("../img/main-company-card-2.jpg"),
+        img: require("../../img/main-company-card-2.jpg"),
         title: "Business",
         description: [
           "가정에서는 간편하게 먹는 든든한 한 끼,",
@@ -24,7 +24,7 @@ const Main = () => {
         ],
       },
       {
-        img: require("../img/main-company-card-3.jpg"),
+        img: require("../../img/main-company-card-3.jpg"),
         title: "400만팩 돌파",
         description: ["진국, 도가니 포장상품", "4,000,000팩 판매 돌파"],
       },
@@ -81,31 +81,31 @@ const Main = () => {
   const ProductCard = () => {
     const productList = [
       {
-        img: require("../img/main-product-sagol.png"),
+        img: require("../../img/main-product-sagol.png"),
         titleKor: "사골진국",
         titleEng: "Sagol Jinguk",
         link: "/",
       },
       {
-        img: require("../img/main-product-dogani.png"),
+        img: require("../../img/main-product-dogani.png"),
         titleKor: "도가니탕",
         titleEng: "Dogani-Tang",
         link: "/",
       },
       {
-        img: require("../img/main-product-seolleong.png"),
+        img: require("../../img/main-product-seolleong.png"),
         titleKor: "설렁탕",
         titleEng: "Seolleong-Tang ",
         link: "/",
       },
       {
-        img: require("../img/main-product-ox.png"),
+        img: require("../../img/main-product-ox.png"),
         titleKor: "우족탕",
         titleEng: "Ox Foot Soup",
         link: "/",
       },
       {
-        img: require("../img/main-product-sagol-large.png"),
+        img: require("../../img/main-product-sagol-large.png"),
         titleKor: "사골 대형 포장팩",
         titleEng: "Sagol Large Packing Pack",
         link: "/",
