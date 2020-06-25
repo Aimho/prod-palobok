@@ -1,8 +1,17 @@
 import styled from "styled-components";
 
+const HeaderSpace = styled.div`
+  height: 80px;
+`;
+
 const Header = styled.header`
+  position: fixed;
+  z-index: 1200;
+  width: 100%;
+  top: 0;
   height: 80px;
   background-color: #fff;
+  box-shadow: rgba(10, 10, 10, 0.1) 0px 1px 2px 0px;
   @media screen and (max-width: 768px) {
     height: 48px;
   }
@@ -171,6 +180,7 @@ const MenuItem = styled.div`
 
 export {
   Header,
+  HeaderSpace,
   Nav,
   ButtonGroup,
   MobileMenuContainer,

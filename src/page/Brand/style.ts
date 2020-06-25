@@ -198,6 +198,7 @@ const HistoryTab = styled(TabContent)`
     @media screen and (max-width: 768px) {
       max-width: 192px;
       margin: auto;
+      margin-bottom: 40px;
     }
   }
 `;

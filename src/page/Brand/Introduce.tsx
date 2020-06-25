@@ -61,8 +61,13 @@ const Introduce = () => {
             노력하겠습니다.
           </p>
           <img
-            className="brand-mental"
-            src={require("../../img/brand-introduce-2.png")}
+            className="brand-mental visible-desktop"
+            src={require("../../img/brand-introduce-2.jpg")}
+            alt="기업정신"
+          />
+          <img
+            className="brand-mental visible-mobile"
+            src={require("../../img/brand-introduce-2-mobile.jpg")}
             alt="기업정신"
           />
         </S.GreetingTab>
@@ -75,9 +80,14 @@ const Introduce = () => {
             1992년부터 지금까지 팔복은 항상 <span>성장하는 기업</span>입니다.
           </h2>
           <img
-            src={require("../../img/brand-history-1.png")}
-            alt="연혁"
             className="full-width visible-desktop"
+            src={require("../../img/brand-history-1.jpg")}
+            alt="연혁"
+          />
+          <img
+            className="full-width visible-mobile"
+            src={require("../../img/brand-history-1-mobile.jpg")}
+            alt="연혁"
           />
         </S.HistoryTab>
       );
@@ -87,14 +97,14 @@ const Introduce = () => {
         <S.SecretTab>
           <h2>더 순수하게 더 푸짐하게 더 깨끗하게</h2>
           <img
+            className="full-width visible-desktop"
             src={require("../../img/brand-introduce-3.jpg")}
             alt="팔복만의 특별함"
-            className="full-width visible-desktop"
           />
           <img
+            className="full-width visible-mobile"
             src={require("../../img/brand-introduce-3-mobile.jpg")}
             alt="팔복만의 특별함"
-            className="full-width visible-mobile"
           />
         </S.SecretTab>
       );

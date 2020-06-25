@@ -127,43 +127,46 @@ const Header = () => {
 
   // render
   return (
-    <S.Header>
-      <S.Nav>
-        <img
-          src={require("../img/brand-logo-black.png")}
-          alt="팔복"
-          onClick={() => linkTo("/")}
-        />
+    <React.Fragment>
+      <S.HeaderSpace />
+      <S.Header>
+        <S.Nav>
+          <img
+            src={require("../img/brand-logo-black.png")}
+            alt="팔복"
+            onClick={() => linkTo("/")}
+          />
 
-        <S.ButtonGroup>
-          <NavMenu />
-          <DropdownMenu />
-          <Icon.Menu className="mobile" onClick={() => setIsOpen(true)} />
-        </S.ButtonGroup>
-      </S.Nav>
+          <S.ButtonGroup>
+            <NavMenu />
+            <DropdownMenu />
+            <Icon.Menu className="mobile" onClick={() => setIsOpen(true)} />
+          </S.ButtonGroup>
+        </S.Nav>
 
-      <S.MobileMenuContainer className={isOpen ? "active" : ""}>
-        <S.Backdrop className="mask" />
+        <S.MobileMenuContainer className={isOpen ? "active" : ""}>
+          <S.Backdrop className="mask" />
 
-        <S.MenuList>
-          <S.MenuItem className="size-large">
-            <p>메뉴</p>
-            <Icon.Close onClick={() => setIsOpen(false)} />
-          </S.MenuItem>
-          <ExpandMenuItems />
-          <S.MenuItem>
-            <a
-              className="market"
-              href="https://www.palbok.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              팔복몰 <Icon.ArrowRight />
-            </a>
-          </S.MenuItem>
-        </S.MenuList>
-      </S.MobileMenuContainer>
-    </S.Header>
+          <S.MenuList>
+            <S.MenuItem className="size-large">
+              <p>메뉴</p>
+              <Icon.Close onClick={() => setIsOpen(false)} />
+            </S.MenuItem>
+            <ExpandMenuItems />
+            <S.MenuItem>
+              <a
+                className="market"
+                href="https://www.palbok.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                팔복몰 <Icon.ArrowRight />
+              </a>
+            </S.MenuItem>
+          </S.MenuList>
+        </S.MobileMenuContainer>
+      </S.Header>
+    </React.Fragment>
   );
 };
 
