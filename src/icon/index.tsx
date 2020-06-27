@@ -5,6 +5,21 @@ interface Props {
   onClick?: (e: any) => void;
 }
 
+// arrow_back_ios-black-18dp
+const ArrowLeft = (props: Props) => (
+  <svg
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    width="18px"
+    height="18px"
+  >
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z" />
+  </svg>
+);
+
 // arrow_forward_ios-black-18dp
 const ArrowRight = (props: Props) => (
   <svg
@@ -33,6 +48,22 @@ const Menu = (props: Props) => (
   >
     <path d="M0 0h24v24H0z" fill="none" />
     <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+  </svg>
+);
+
+const Check = (props: Props) => (
+  <svg
+    {...props}
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M9.00016 16.1698L4.83016 11.9998L3.41016 13.4098L9.00016 18.9998L21.0002 6.99984L19.5902 5.58984L9.00016 16.1698Z"
+      fill="black"
+    />
   </svg>
 );
 
@@ -133,12 +164,14 @@ const LightBulb = (props: Props) => (
 );
 
 export {
+  ArrowLeft,
   ArrowRight,
-  Menu,
+  Check,
   Close,
   ExpandLess,
   ExpandMore,
   Favorite,
   Handshake,
   LightBulb,
+  Menu,
 };

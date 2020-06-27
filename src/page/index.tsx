@@ -17,5 +17,5 @@ export default Container;
 /** route settings */
 export const routes: RouteProps[] = [
   { path: "/", component: Main, exact: true },
-  { path: "/brand/:type", component: Brand, exact: true },
+  { path: ["/brand", "/brand/:type"], component: Brand, exact: true },
 ];

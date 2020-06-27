@@ -68,6 +68,9 @@ const ButtonGroup = styled.div`
     a {
       color: #000;
       display: block;
+      &:hover {
+        color: #b41118;
+      }
     }
   }
 

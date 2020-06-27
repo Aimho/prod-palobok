@@ -13,47 +13,39 @@ const Footer = styled.footer`
 `;
 
 const Container = styled.section`
-  max-width: 1140px;
+  max-width: calc(1140px - 60px);
   margin: auto;
-  padding: 0 30px;
-
-  display: grid;
-  grid-template-columns:
-    [logo-start info-start] repeat(6, 1fr)
-    [logo-end info-end map-start contact-start] repeat(6, 1fr)
-    [map-end contact-end];
-  grid-template-rows:
-    [logo-start map-start] auto [logo-end map-end] auto
-    [info-start contact-start] auto [info-end contact-end];
-  grid-column-gap: 18px;
-  grid-row-gap: 23px;
+  position: relative;
+  min-height: 157px;
   @media screen and (max-width: 768px) {
-    padding: 0px 15px;
-    grid-template-columns:
-      [map-start logo-start] repeat(4, 1fr)
-      [logo-end contact-start info-start] repeat(9, 1fr)
-      [logo-end contact-end info-end];
-    grid-template-rows:
-      [map-start] auto [map-end logo-start contact-start] auto
-      [logo-end contact-end info-start] auto [info-end];
-    grid-column-gap: 14px;
-    grid-row-gap: 14px;
+    margin: 0px auto;
+    min-height: 200px;
+    max-width: 340px;
   }
 
   .logo {
-    grid-area: logo;
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 34px;
     @media screen and (max-width: 768px) {
       height: 26px;
+      top: 36px;
     }
   }
   .map {
-    grid-area: map;
+    position: absolute;
+    width: 472px;
+    top: 0;
+    right: 0;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
     margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
     @media screen and (max-width: 768px) {
+      width: 100%;
       font-size: 12px;
       line-height: 18px;
       margin-top: 0px;
@@ -61,27 +53,36 @@ const Container = styled.section`
     }
     a {
       color: #fff;
-      & + a {
-        margin-left: 36px;
-        @media screen and (max-width: 768px) {
-          margin-left: 14px;
-        }
-      }
     }
   }
   .info {
-    grid-area: info;
+    position: absolute;
+    top: 57px;
+    left: 0;
     font-size: 12px;
     line-height: 18px;
     color: #e8e8e8;
     word-break: keep-all;
+    @media screen and (max-width: 768px) {
+      top: 100px;
+      right: 0;
+      left: auto;
+      width: 70%;
+      font-size: 12px;
+      line-height: 18px;
+    }
   }
   .contact {
-    grid-area: contact;
+    position: absolute;
+    width: 472px;
+    top: 57px;
+    right: 0;
     font-size: 14px;
     line-height: 24px;
     color: #e8e8e8;
     @media screen and (max-width: 768px) {
+      top: 36px;
+      width: 70%;
       font-size: 12px;
       line-height: 18px;
     }

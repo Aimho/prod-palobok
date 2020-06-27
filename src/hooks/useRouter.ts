@@ -1,4 +1,4 @@
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, useLocation } from "react-router-dom";
 
 function useRouter() {
   const { push } = useHistory();
@@ -6,9 +6,12 @@ function useRouter() {
 
   const params: any = useParams();
 
+  const { pathname } = useLocation();
+
   return {
     linkTo,
     params,
+    pathname,
   };
 }
 

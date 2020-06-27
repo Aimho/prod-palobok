@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from "react";
+import React, { useState, useEffect, MouseEvent } from "react";
 import { Link } from "react-router-dom";
 
 import useRouter from "../hooks/useRouter";
@@ -6,12 +6,12 @@ import * as S from "./HeaderStyle";
 import * as Icon from "../icon";
 
 const Header = () => {
-  // data
+  // move to routes
   const menuList: any = {
     팔복: [
-      { label: "회사소개", link: "/" },
-      { label: "진국스토리", link: "/" },
-      { label: "매장안내", link: "/" },
+      { label: "회사소개", link: "/brand/introduce" },
+      { label: "진국스토리", link: "/brand/story" },
+      { label: "매장안내", link: "/brand/store" },
     ],
     제품: [
       { label: "제품", link: "/" },
@@ -25,7 +25,8 @@ const Header = () => {
   };
 
   // hooks
-  const { linkTo } = useRouter();
+  const { linkTo, pathname } = useRouter();
+  useEffect(() => window.scrollTo(0, 0), [pathname]);
   const [target, setTarget] = useState("");
   const [anchorOffset, setAnchorOffset] = useState<{
     left?: number;
@@ -74,6 +75,7 @@ const Header = () => {
     </React.Fragment>
   );
 
+  // pc dropdown menus
   const DropdownMenu = () => {
     if (!anchorOffset.left || !anchorOffset.top || !target || isOpen)
       return null;
@@ -95,6 +97,7 @@ const Header = () => {
     );
   };
 
+  // mobile expand menus
   const ExpandMenuItems = () => {
     const menuListKeys = Object.keys(menuList);
 

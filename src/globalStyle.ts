@@ -22,11 +22,17 @@ button {
     background-color: transparent;
     border: 0px;
     padding: 0px;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
 a {
   text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 h1, h2, h3, h4, h5, h6, p, span {
@@ -71,6 +77,10 @@ body {
   @media screen and (max-width: 768px) {
     display: block;
   }
+}
+
+.highlight {
+  color: #b41118;
 }
 `;
 

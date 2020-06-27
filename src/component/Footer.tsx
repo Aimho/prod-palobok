@@ -39,14 +39,14 @@ const Footer = () => {
       "사업자등록번호 : 132-81-36293 통신판매신고 2014-경기양평-0150",
     ];
     return (
-      <div className="info">
+      <address className="info">
         {infoList.map((item, index) => (
           <p key={index}>{item}</p>
         ))}
         <p style={{ marginTop: "14px", whiteSpace: "nowrap" }}>
           copyright(C) 2015 팔복 all rights reserved
         </p>
-      </div>
+      </address>
     );
   };
 
@@ -57,13 +57,13 @@ const Footer = () => {
       { title: "E-MAIL", content: "palbok@palbok.com" },
     ];
     return (
-      <div className="contact">
+      <address className="contact">
         {contactList.map((item, index) => (
           <p key={index}>
             <span>{item.title}</span> {item.content}
           </p>
         ))}
-      </div>
+      </address>
     );
   };
 
