@@ -122,4 +122,32 @@ const SubTitleContent = styled.h4`
   margin-bottom: 40px;
 `;
 
-export { Banner, Snb, Container, Section, SubTitleSection, SubTitleContent };
+const NotFoundData = styled.p`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  min-height: 30vh;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 28px;
+  text-align: center;
+  color: #999;
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 20px;
+  }
+`;
+
+export {
+  Banner,
+  Snb,
+  Container,
+  Section,
+  SubTitleSection,
+  SubTitleContent,
+  NotFoundData,
+};

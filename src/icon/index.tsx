@@ -20,6 +20,35 @@ const ArrowLeft = (props: Props) => (
   </svg>
 );
 
+// arrow_back_ios-black-18dp
+const ArrowBack = (props: Props) => (
+  <svg
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    width="13px"
+    height="13px"
+  >
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z" />
+  </svg>
+);
+
+const ArrowDoubleBack = (props: Props) => (
+  <svg
+    {...props}
+    width="13px"
+    height="13px"
+    viewBox="0 0 13 12"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M13 10.59L8.67341 6L13 1.41L11.668 0L6 6L11.668 12L13 10.59Z" />
+    <path d="M7 10.59L2.67341 6L7 1.41L5.66802 0L0 6L5.66802 12L7 10.59Z" />
+  </svg>
+);
+
 // arrow_forward_ios-black-18dp
 const ArrowRight = (props: Props) => (
   <svg
@@ -29,10 +58,38 @@ const ArrowRight = (props: Props) => (
     fill="currentColor"
     width="18px"
     height="18px"
-    style={{ margin: "0 4px" }}
   >
     <path d="M0 0h24v24H0z" fill="none" />
     <path d="M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z" />
+  </svg>
+);
+
+// arrow_back_ios-black-18dp
+const ArrowForward = (props: Props) => (
+  <svg
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    width="13px"
+    height="13px"
+  >
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path d="M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z" />
+  </svg>
+);
+
+const ArrowDoubleForward = (props: Props) => (
+  <svg
+    {...props}
+    width="13px"
+    height="13px"
+    viewBox="0 0 14 12"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M0 10.59L4.58 6L0 1.41L1.41 0L7.41 6L1.41 12L0 10.59Z" />
+    <path d="M6 10.59L10.58 6L6 1.41L7.41 0L13.41 6L7.41 12L6 10.59Z" />
   </svg>
 );
 
@@ -163,9 +220,27 @@ const LightBulb = (props: Props) => (
   </svg>
 );
 
+const Error = (props: Props) => (
+  <svg
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="#B41118"
+    width="60px"
+    height="60px"
+  >
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
+  </svg>
+);
+
 export {
   ArrowLeft,
+  ArrowDoubleBack,
+  ArrowBack,
   ArrowRight,
+  ArrowForward,
+  ArrowDoubleForward,
   Check,
   Close,
   ExpandLess,
@@ -174,4 +249,5 @@ export {
   Handshake,
   LightBulb,
   Menu,
+  Error,
 };

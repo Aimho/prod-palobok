@@ -5,192 +5,180 @@ const Banner = styled(CommonStyle.Banner)`
   background-image: url(${require("../../img/news-banner.jpg")});
 `;
 
-const ProductSubTitle = styled(CommonStyle.SubTitleContent)`
-  margin: 0;
-`;
-
-const ProductCard = styled.div`
-  display: flex;
-  max-width: 760px;
-  margin: 0 auto;
-  @media screen and (max-width: 768px) {
-    display: block;
-  }
-  &:not(:last-child) {
-    margin-bottom: 40px;
-  }
-  img {
-    width: 280px;
-    height: 240px;
-    margin-right: 60px;
+const Table = styled.table`
+  width: 100%;
+  border-spacing: 0px;
+  thead {
+    background: #f6f6f6;
     @media screen and (max-width: 768px) {
-      width: 100%;
-      height: auto;
-      margin-right: 0px;
+      tr {
+        display: flex;
+        flex-wrap: wrap;
+        border-bottom: 4px solid #e8e8e8;
+      }
+    }
+    th {
+      padding: 14px 10px;
+      padding-bottom: 10px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #666;
+      border: 1px solid #e8e8e8;
+      border-left: 0px;
+      border-right: 0px;
+      &:first-child {
+        border-left: 1px solid #e8e8e8;
+      }
+      &:last-child {
+        border-right: 1px solid #e8e8e8;
+      }
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
     }
   }
-  .info {
-    position: relative;
-    padding-top: 20px;
-    padding-bottom: 10px;
+  tbody {
     @media screen and (max-width: 768px) {
-      padding-bottom: 0px;
+      tr {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #e8e8e8;
+        padding: 10px 0px;
+      }
     }
-    .desc {
-      margin: 20px 0;
+    tr:hover {
+      cursor: pointer;
+      background: #e8e8e8;
+    }
+    td {
+      padding: 20px 10px;
       font-size: 14px;
       line-height: 20px;
-    }
-    a.market {
-      @media screen and (max-width: 768px) {
-        position: absolute;
-        right: 0;
-        top: 25px;
-      }
-    }
-  }
-`;
-
-const PlantArticle = styled.article`
-  padding-bottom: 20px;
-`;
-
-interface PlantSectionProps {
-  backgroundColor: string;
-}
-const PlantSection = styled(CommonStyle.Section).attrs(
-  (props: PlantSectionProps) => ({
-    backgroundColor: props.backgroundColor || "#fff",
-  })
-)`
-  padding-bottom: 60px;
-  background-color: ${(props) => props.backgroundColor};
-  h2.content-title {
-    margin-top: 20px;
-    text-align: center;
-    @media screen and (max-width: 768px) {
-      font-size: 16px;
-      line-height: 24px;
-    }
-    span {
-      color: #b41118;
-    }
-  }
-`;
-
-const PlantInfo = styled.div`
-  display: flex;
-  align-items: center;
-  @media screen and (max-width: 768px) {
-    display: block;
-  }
-  img {
-    width: 440px;
-    height: 280px;
-    margin-right: 42px;
-    @media screen and (max-width: 768px) {
-      width: 100%;
-      height: auto;
-      margin-right: 0;
-    }
-  }
-  .info {
-    padding-top: 20px;
-    p {
-      font-size: 16px;
-      line-height: 24px;
-      color: #474747;
-      @media screen and (max-width: 768px) {
-        font-size: 14px;
-        line-height: 20px;
-      }
-
-      &:not(:last-child) {
-        margin-bottom: 20px;
-      }
-
-      strong {
-        display: inline-block;
+      text-align: center;
+      color: #999;
+      border-bottom: 1px solid #e8e8e8;
+      &.title {
+        font-size: 16px;
+        line-height: 24px;
+        text-align: left;
         color: #000;
-        font-size: 20px;
-        line-height: 30px;
-        width: 105px;
         @media screen and (max-width: 768px) {
-          font-size: 16px;
-          line-height: 24px;
-          width: 84px;
+          width: 100%;
         }
       }
     }
   }
 `;
 
-const PlantContainer = styled(CommonStyle.Container)`
-  @media screen and (max-width: 768px) {
-    text-align: center;
-  }
-`;
-
-const PlantSubTitle = styled(CommonStyle.SubTitleContent)`
-  margin-top: 0;
-  @media screen and (max-width: 768px) {
-    font-size: 16px;
-    line-height: 24px;
-  }
-  span {
-    color: #b41118;
-  }
-`;
-
-const PlantAppointment = styled.div`
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  .appointment-item {
-    width: 180px;
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 20px;
-    line-height: 30px;
-    color: #ffffff;
-    @media screen and (max-width: 768px) {
-      width: 140px;
-      height: 140px;
-      font-size: 16px;
-      line-height: 24px;
-      margin-bottom: 12px;
+const NoticeTable = styled(Table)`
+  tbody {
+    td {
+      @media screen and (max-width: 768px) {
+        margin: 5px 10px;
+        padding: 0px;
+        border-bottom: 0px;
+        font-size: 12px;
+        line-height: 12px;
+        &.writer {
+          position: absolute;
+          bottom: 10px;
+          left: 70px;
+          padding-left: 10px;
+          border-left: 1px solid #e8e8e8;
+        }
+        &.number,
+        &.view {
+          display: none;
+        }
+      }
     }
   }
 `;
 
-const PlantDesc = styled.div`
-  text-align: left;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 60px;
+const Pagination = styled.nav`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  margin: 60px auto;
+  margin-bottom: 120px;
   @media screen and (max-width: 768px) {
-    font-size: 14px;
-    line-height: 20px;
-    margin-bottom: 40px;
+    max-width: 250px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+
+  a {
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    color: #666666;
+    @media screen and (max-width: 768px) {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-weight: normal;
+      font-size: 12px;
+    }
+    &.nav-btn {
+      background: #f6f6f6;
+      border: 1px solid #e8e8e8;
+      margin: 0 10px;
+      &:first-child {
+        margin-right: 0px;
+        @media screen and (max-width: 768px) {
+          margin-left: 0px;
+          margin-right: 20px;
+        }
+      }
+      &:last-child {
+        margin-left: 0px;
+        @media screen and (max-width: 768px) {
+          margin-right: 0px;
+          margin-left: 20px;
+        }
+      }
+    }
+    &.active {
+      color: #fff;
+      background: #b41118;
+    }
+  }
+`;
+
+const ContactContainer = styled(CommonStyle.Container)`
+  position: relative;
+  a.button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 1px solid #b41118;
+    padding: 12px 30px;
+    color: #b41118;
+    font-weight: 500;
+    @media screen and (max-width: 768px) {
+      position: relative;
+      padding: 10px 30px;
+      font-size: 14px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
   }
 `;
 
 export {
   // 공통
   Banner,
-  // 제품 page
-  ProductSubTitle,
-  ProductCard,
-  // 플랜트 page
-  PlantArticle,
-  PlantSection,
-  PlantInfo,
-  PlantContainer,
-  PlantSubTitle,
-  PlantAppointment,
-  PlantDesc,
+  Table,
+  Pagination,
+  // 공지사항 페이지
+  NoticeTable,
+  // 고객문의 페이지
+  ContactContainer,
 };

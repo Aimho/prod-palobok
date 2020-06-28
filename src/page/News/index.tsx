@@ -3,7 +3,7 @@ import React from "react";
 import useRouter from "../../hooks/useRouter";
 
 import Notice from "./Notice";
-import Plant from "./Plant";
+import Contact from "./Contact";
 
 import * as S from "./style";
 import * as CommonEle from "../element";
@@ -25,8 +25,8 @@ const News = () => {
     }
 
     if (params.type.toLowerCase() === "notice") return <Notice />;
-    if (params.type.toLowerCase() === "event") return <Plant />;
-    if (params.type.toLowerCase() === "contact") return <Plant />;
+    if (params.type.toLowerCase() === "event") return <Notice />;
+    if (params.type.toLowerCase() === "contact") return <Contact />;
 
     // Todo 404 페이지
     linkTo("/brand/introduce");

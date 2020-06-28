@@ -5,6 +5,7 @@ import Main from "./Main";
 import Brand from "./Brand";
 import Product from "./Product";
 import News from "./News";
+import NotFound from "./NotFound";
 
 const Container = () => (
   <Switch>
@@ -25,5 +26,9 @@ export const routes: RouteProps[] = [
     path: ["/news", "/news/:type", "/news/:type/:id"],
     component: News,
     exact: true,
+  },
+  {
+    path: "*",
+    component: NotFound,
   },
 ];

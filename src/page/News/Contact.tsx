@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-import { getNoticeList } from "../../api/newsApi";
+import { getContactList } from "../../api/newsApi";
 import useRouter, { searchQueryToObject } from "../../hooks/useRouter";
 
+import * as S from "./style";
 import * as CommonStyle from "../style";
-import NoticeList from "./NoticeList";
+import ContactList from "./ContactList";
 
-const Notice = () => {
+const Contact = () => {
   const { params, search } = useRouter();
   const [payload, setPayload] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -17,7 +19,7 @@ const Notice = () => {
     function getApi(type: "detail" | "list") {
       if (type === "detail") {
       } else {
-        getNoticeList(query.page ? query.page : 1).then((resp) => {
+        getContactList(query.page ? query.page : 1).then((resp) => {
           if (resp && resp.data) {
             setPayload(resp.data.data);
             setTotalCount(resp.data.totalCount);
@@ -31,22 +33,29 @@ const Notice = () => {
 
   const Content = () => {
     if (!params.id)
-      return <NoticeList payload={payload} totalCount={totalCount} />;
+      return <ContactList payload={payload} totalCount={totalCount} />;
     return null;
   };
 
   return (
     <CommonStyle.SubTitleSection>
-      <CommonStyle.Container>
-        <h2>공지사항</h2>
+      <S.ContactContainer>
+        <h2>고객문의</h2>
         <p className="sub-title">
-          팔복의 다양한 안내사항을 신속히 알려드립니다.
+          - 고객님의 질문에 신속하고 정확하게 답변해 드리겠습니다.
+          <br />- 배송지 변경 및 결제 관련 문의사항은{" "}
+          <span className="highlight">1577-0688</span>로 전화주시면{" "}
+          <br className="visible-mobile" />
+          신속하게 처리해 드리겠습니다.
         </p>
+        <Link className="button" to={"/contact/create"}>
+          문의하기
+        </Link>
 
         <Content />
-      </CommonStyle.Container>
+      </S.ContactContainer>
     </CommonStyle.SubTitleSection>
   );
 };
 
-export default Notice;
+export default Contact;
