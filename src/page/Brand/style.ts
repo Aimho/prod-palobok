@@ -1,106 +1,9 @@
 import styled from "styled-components";
 
-const Banner = styled.section`
-  padding: 115px 0px;
-  background: url(${require("../../img/brand-banner.jpg")}) no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  font-weight: bold;
-  font-size: 48px;
-  line-height: 70px;
-  text-align: center;
-  color: #ffffff;
-  @media screen and (max-width: 768px) {
-    padding: 43px 0px;
-  }
-`;
+import * as CommonStyle from "../style";
 
-const Container = styled.div`
-  max-width: 1140px;
-  margin: auto;
-  padding: 0 30px;
-  @media screen and (max-width: 768px) {
-    padding: 0 15px;
-  }
-`;
-
-const Snb = styled.nav`
-  border-bottom: 1px solid #e8e8e8;
-  .btn-group {
-    max-width: 1140px;
-    padding: 0 30px;
-    margin: auto;
-    display: flex;
-    @media screen and (max-width: 768px) {
-      padding: 0px;
-    }
-  }
-  a {
-    color: #000;
-    padding: 18px 0px;
-    width: 142px;
-    border-left: 1px solid #e8e8e8;
-    text-align: center;
-    font-size: 16px;
-    line-height: 24px;
-    @media screen and (max-width: 768px) {
-      padding: 11px 0px;
-      width: 25%;
-      font-size: 12px;
-      line-height: 18px;
-    }
-    &:last-child {
-      border-right: 1px solid #e8e8e8;
-    }
-    &.active {
-      color: #b41118;
-      border-bottom: 4px solid #b41118;
-      @media screen and (max-width: 768px) {
-        border-bottom: 2px solid #b41118;
-      }
-    }
-  }
-`;
-
-const Section = styled.section`
-  padding-top: 60px;
-  padding-bottom: 120px;
-  @media screen and (max-width: 768px) {
-    padding-top: 30px;
-    padding-bottom: 60px;
-  }
-  h1 {
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 46px;
-    margin-bottom: 40px;
-    @media screen and (max-width: 768px) {
-      font-size: 20px;
-      line-height: 30px;
-      margin-bottom: 20px;
-    }
-  }
-`;
-
-const SubTitleSection = styled(Section)`
-  h1 {
-    margin-bottom: 15px;
-    @media screen and (max-width: 768px) {
-      margin-bottom: 4px;
-    }
-  }
-  p.sub-title {
-    font-size: 16px;
-    line-height: 24px;
-    color: #474747;
-    margin-bottom: 40px;
-    @media screen and (max-width: 768px) {
-      font-size: 12px;
-      line-height: 18px;
-      margin-bottom: 20px;
-    }
-  }
+const Banner = styled(CommonStyle.Banner)`
+  background-image: url(${require("../../img/brand-banner.jpg")});
 `;
 
 const SlideCard = styled.div`
@@ -152,6 +55,7 @@ const TabNav = styled.section.attrs((props: PropsTabNav) => ({
   @media screen and (max-width: 768px) {
     margin-bottom: 40px;
   }
+
   .tab-nav {
     width: ${(props) => `${props.itemWidthPer}%`};
     text-align: center;
@@ -305,17 +209,6 @@ const StoreTab = styled(TabContent)`
       line-height: 18px;
     }
   }
-`;
-
-const StoreSubtitle = styled.h4`
-  display: inline-block;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 30px;
-  padding-bottom: 8px;
-  border-bottom: solid 2px #b41118;
-  margin-top: 80px;
-  margin-bottom: 40px;
 `;
 
 const StoreInfo = styled.section`
@@ -498,10 +391,6 @@ const StoreWayToCome = styled(StoreSection)`
 export {
   // 공통
   Banner,
-  Container,
-  Snb,
-  Section,
-  SubTitleSection,
   SlideCard,
   TabNav,
   TabContent,
@@ -513,7 +402,6 @@ export {
   StoryContent,
   // 매장안내 페이지
   StoreTab,
-  StoreSubtitle,
   StoreInfo,
   StoreMenu,
   StorePic,

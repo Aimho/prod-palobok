@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 const HeaderSpace = styled.div`
   height: 80px;
+  @media screen and (max-width: 768px) {
+    height: 48px;
+  }
 `;
 
 const Header = styled.header`
@@ -47,12 +50,6 @@ const ButtonGroup = styled.div`
   line-height: 30px;
   font-weight: 500;
 
-  a.market {
-    display: inline-flex;
-    align-items: center;
-    color: #b41118;
-  }
-
   .menu {
     position: absolute;
     z-index: 1010;
@@ -64,14 +61,6 @@ const ButtonGroup = styled.div`
     box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
       0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     font-size: 16px;
-
-    a {
-      color: #000;
-      display: block;
-      &:hover {
-        color: #b41118;
-      }
-    }
   }
 
   a.market,
@@ -172,12 +161,6 @@ const MenuItem = styled.div`
     &:last-child {
       margin-bottom: 10px;
     }
-  }
-
-  a.market {
-    display: inline-flex;
-    align-items: center;
-    color: #b41118;
   }
 `;
 

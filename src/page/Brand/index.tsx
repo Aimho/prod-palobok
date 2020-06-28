@@ -6,21 +6,18 @@ import Introduce from "./Introduce";
 import Story from "./Story";
 import Store from "./Store";
 
-import * as E from "./element";
 import * as S from "./style";
+import * as CommonEle from "../element";
 
 const Brand = () => {
   const { params, linkTo } = useRouter();
 
-  const Snb = () => {
-    const list = [
-      { label: "HOME", link: "/" },
-      { label: "회사소개", link: "/brand/introduce" },
-      { label: "진국스토리", link: "/brand/story" },
-      { label: "매장안내", link: "/brand/store" },
-    ];
-    return <E.Snb list={list} />;
-  };
+  const list = [
+    { label: "HOME", link: "/" },
+    { label: "회사소개", link: "/brand/introduce" },
+    { label: "진국스토리", link: "/brand/story" },
+    { label: "매장안내", link: "/brand/store" },
+  ];
 
   const Content = () => {
     if (!params.type) {
@@ -39,8 +36,10 @@ const Brand = () => {
 
   return (
     <main>
-      <S.Banner>팔복</S.Banner>
-      <Snb />
+      <S.Banner className="mask">
+        <h1>팔복</h1>
+      </S.Banner>
+      <CommonEle.Snb list={list} />
       <Content />
     </main>
   );

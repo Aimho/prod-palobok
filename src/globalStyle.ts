@@ -29,9 +29,17 @@ button {
 }
 
 a {
+  color: #000;
+  display: block;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
+    color: #b41118;
+  }
+  &.market {
+    display: inline-flex;
+    align-items: center;
+    color: #b41118;
   }
 }
 

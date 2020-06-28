@@ -1,47 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
-import useRouter from "../../hooks/useRouter";
 
 import * as S from "./style";
 import * as Icon from "../../icon";
-
-interface SnbProps {
-  list: {
-    label: string;
-    link: string;
-  }[];
-}
-const Snb = (props: SnbProps) => {
-  const { params } = useRouter();
-
-  const Button = () => {
-    return (
-      <React.Fragment>
-        {props.list.map((item, index) => {
-          const className = () => {
-            if (!params.type || item.link.indexOf(params.type) === -1)
-              return "";
-            return "active";
-          };
-          return (
-            <Link key={index} to={item.link} className={className()}>
-              {item.label}
-            </Link>
-          );
-        })}
-      </React.Fragment>
-    );
-  };
-
-  return (
-    <S.Snb>
-      <div className="btn-group">
-        <Button />
-      </div>
-    </S.Snb>
-  );
-};
+import * as CommonStyle from "../style";
 
 interface SlideCardProps {
   imgTags: any[];
@@ -130,7 +91,6 @@ const GreetingTitle = () => {
 const GreetingContent = () => {
   return (
     <React.Fragment>
-      <h2>더 순수하게 더 푸짐하게 더 깨끗하게</h2>
       <img
         className="full-width"
         src={require("../../img/brand-introduce-1.jpg")}
@@ -261,7 +221,7 @@ const StoreGangDongMenus = () => {
 
   return (
     <S.StoreMenu>
-      <S.StoreSubtitle>메뉴 소개</S.StoreSubtitle>
+      <CommonStyle.SubTitleContent>메뉴 소개</CommonStyle.SubTitleContent>
       <Menus />
       <SlideCard imgTags={imgTags} />
     </S.StoreMenu>
@@ -278,7 +238,7 @@ const StoreGangDongPic = () => {
 
   return (
     <S.StorePic>
-      <S.StoreSubtitle>매장 사진</S.StoreSubtitle>
+      <CommonStyle.SubTitleContent>매장 사진</CommonStyle.SubTitleContent>
       <div className="img-container">
         {src.map((item, index) => (
           <img src={item} alt="매장사진" key={index} />
@@ -334,7 +294,7 @@ const StoreGangDongWayToCome = () => {
   ];
   return (
     <S.StoreWayToCome>
-      <S.StoreSubtitle>오시는 길</S.StoreSubtitle>
+      <CommonStyle.SubTitleContent>오시는 길</CommonStyle.SubTitleContent>
       <img
         src={require("../../img/brand-store-way-to-come-1.jpg")}
         alt="오시는 길"
@@ -436,7 +396,7 @@ const StoreCheonanMenus = () => {
 
   return (
     <S.StoreMenu>
-      <S.StoreSubtitle>메뉴 소개</S.StoreSubtitle>
+      <CommonStyle.SubTitleContent>메뉴 소개</CommonStyle.SubTitleContent>
       <Menus />
       <SlideCard imgTags={imgTags} />
     </S.StoreMenu>
@@ -453,7 +413,7 @@ const StoreCheonanPic = () => {
 
   return (
     <S.StorePic>
-      <S.StoreSubtitle>매장 사진</S.StoreSubtitle>
+      <CommonStyle.SubTitleContent>매장 사진</CommonStyle.SubTitleContent>
       <div className="img-container">
         {src.map((item, index) => (
           <img src={item} alt="매장사진" key={index} />
@@ -486,7 +446,7 @@ const StoreCheonanWayToCome = () => {
   ];
   return (
     <S.StoreWayToCome>
-      <S.StoreSubtitle>오시는 길</S.StoreSubtitle>
+      <CommonStyle.SubTitleContent>오시는 길</CommonStyle.SubTitleContent>
       <img
         src={require("../../img/brand-store-way-to-come-2.jpg")}
         alt="오시는 길"
@@ -507,9 +467,9 @@ const StoreCheonanWayToCome = () => {
 
 export {
   // 공통
-  Snb,
   TabNav,
   TabContentImage,
+  SlideCard,
   // 팔복 - 인사말
   GreetingTitle,
   GreetingContent,

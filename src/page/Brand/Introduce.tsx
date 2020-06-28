@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import * as S from "./style";
 import * as E from "./element";
+import * as CommonStyle from "../style";
 
 const Introduce = () => {
   // data
@@ -52,13 +53,13 @@ const Introduce = () => {
   };
 
   return (
-    <S.Section>
-      <S.Container>
-        <h1>회사소개</h1>
+    <CommonStyle.Section>
+      <CommonStyle.Container>
+        <h2>회사소개</h2>
         <E.TabNav tabList={tabList} target={target} setTarget={setTarget} />
         <TabContent />
-      </S.Container>
-    </S.Section>
+      </CommonStyle.Container>
+    </CommonStyle.Section>
   );
 };
 

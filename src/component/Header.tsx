@@ -14,8 +14,8 @@ const Header = () => {
       { label: "매장안내", link: "/brand/store" },
     ],
     제품: [
-      { label: "제품", link: "/" },
-      { label: "진국플랜트", link: "/" },
+      { label: "제품", link: "/product/list" },
+      { label: "진국플랜트", link: "/product/plant" },
     ],
     소식: [
       { label: "공지사항", link: "/" },

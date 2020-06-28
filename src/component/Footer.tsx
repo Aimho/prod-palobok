@@ -6,7 +6,7 @@ const Footer = () => {
   // components
   const Sitemap = () => {
     const sitemapList = [
-      { label: "회사소개", link: "/", target: "_self" },
+      { label: "회사소개", link: "/brand/introduce", target: "_self" },
       { label: "공지사항", link: "/", target: "_self" },
       { label: "고객문의", link: "/", target: "_self" },
       { label: "찾아오시는 길", link: "/", target: "_self" },
@@ -39,14 +39,14 @@ const Footer = () => {
       "사업자등록번호 : 132-81-36293 통신판매신고 2014-경기양평-0150",
     ];
     return (
-      <address className="info">
+      <div className="info">
         {infoList.map((item, index) => (
           <p key={index}>{item}</p>
         ))}
         <p style={{ marginTop: "14px", whiteSpace: "nowrap" }}>
           copyright(C) 2015 팔복 all rights reserved
         </p>
-      </address>
+      </div>
     );
   };
 
@@ -57,13 +57,13 @@ const Footer = () => {
       { title: "E-MAIL", content: "palbok@palbok.com" },
     ];
     return (
-      <address className="contact">
+      <div className="contact">
         {contactList.map((item, index) => (
           <p key={index}>
             <span>{item.title}</span> {item.content}
           </p>
         ))}
-      </address>
+      </div>
     );
   };
 

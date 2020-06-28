@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import * as S from "./style";
 import * as E from "./element";
+import * as CommonStyle from "../style";
 
 const Store = () => {
   // data
@@ -36,13 +37,13 @@ const Store = () => {
   };
 
   return (
-    <S.Section>
-      <S.Container>
-        <h1>매장안내</h1>
+    <CommonStyle.Section>
+      <CommonStyle.Container>
+        <h2>매장안내</h2>
         <E.TabNav tabList={tabList} target={target} setTarget={setTarget} />
         <TabContent />
-      </S.Container>
-    </S.Section>
+      </CommonStyle.Container>
+    </CommonStyle.Section>
   );
 };
 
