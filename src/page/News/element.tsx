@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import useRouter, { searchQueryToObject } from "../../hooks/useRouter";
+import useRouter, { searchQueryToObject } from "../../utils/useRouter";
 
 import * as S from "./style";
 import * as Icon from "../../icon";
@@ -67,72 +67,45 @@ const Pagination = (props: PaginationProps) => {
 };
 
 interface TableProps {
+  type: "notice" | "contact" | "event";
   columns: {
     label: string;
     key: string;
   }[];
   dataSource: any[];
 }
-const NoticeTable = (props: TableProps) => {
+const Table = (props: TableProps) => {
   const { linkTo } = useRouter();
 
   return (
-    <S.NoticeTable>
+    <S.Table className={props.type}>
       <thead>
         <tr>
           {props.columns.map((item) => (
-            <th key={item.key}>{item.label}</th>
+            <th className={item.key} key={item.key}>
+              {item.label}
+            </th>
           ))}
         </tr>
       </thead>
       <tbody>
         {props.dataSource.map((item) => (
-          <tr key={item.id} onClick={() => linkTo(`/news/notice/${item.id}`)}>
+          <tr
+            key={item.id}
+            onClick={() => linkTo(`/news/${props.type}/${item.id}`)}
+          >
             {props.columns.map((column, index) => {
-              let label = item[column.key];
-              if (column.key === "createdAt") {
-                label = formatDate(new Date(label), "YYYY-MM-DD");
-              }
               return (
                 <td className={column.key} key={index}>
-                  {label}
+                  {item[column.key]}
                 </td>
               );
             })}
           </tr>
         ))}
       </tbody>
-    </S.NoticeTable>
+    </S.Table>
   );
 };
 
-const ContactTable = NoticeTable;
-
-export { NoticeTable, ContactTable, Pagination };
-
-/**
- * Date를 원하는 포맷으로 변경해준다.
- * @param date 변환할 원본 데이터
- * @param format 원하는 포맷
- */
-function formatDate(date: Date, format: string) {
-  let year = date.getFullYear(),
-    month = "" + (date.getMonth() + 1),
-    day = "" + date.getDate(),
-    hour = "" + date.getHours(),
-    minutes = "" + date.getMinutes();
-
-  if (month.length < 2) month = "0" + month;
-  if (day.length < 2) day = "0" + day;
-  if (hour.length < 2) hour = "0" + hour;
-  if (minutes.length < 2) minutes = "0" + minutes;
-
-  const result = format
-    .replace("YYYY", String(year))
-    .replace("MM", String(month))
-    .replace("DD", String(day))
-    .replace("HH", String(hour))
-    .replace("mm", String(minutes));
-
-  return result;
-}
+export { Table, Pagination };

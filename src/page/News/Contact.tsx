@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { getContactList } from "../../api/newsApi";
-import useRouter, { searchQueryToObject } from "../../hooks/useRouter";
+import useRouter, { searchQueryToObject } from "../../utils/useRouter";
 
 import * as S from "./style";
 import * as CommonStyle from "../style";

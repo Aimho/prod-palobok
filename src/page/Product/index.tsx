@@ -1,6 +1,6 @@
 import React from "react";
 
-import useRouter from "../../hooks/useRouter";
+import useRouter from "../../utils/useRouter";
 
 import List from "./List";
 import Plant from "./Plant";
@@ -26,8 +26,7 @@ const Product = () => {
     if (params.type.toLowerCase() === "list") return <List />;
     if (params.type.toLowerCase() === "plant") return <Plant />;
 
-    // Todo 404 페이지
-    linkTo("/brand/introduce");
+    linkTo("/notfound");
     return null;
   };
 

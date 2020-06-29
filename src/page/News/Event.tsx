@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import { getNoticeList } from "../../api/newsApi";
+import { getEventList } from "../../api/newsApi";
 import useRouter, { searchQueryToObject } from "../../utils/useRouter";
 
 import * as CommonStyle from "../style";
-import NoticeList from "./NoticeList";
+import EventList from "./EventList";
 
-const Notice = () => {
+const Event = () => {
   const { params, search } = useRouter();
   const [payload, setPayload] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -17,7 +17,7 @@ const Notice = () => {
     function getApi(type: "detail" | "list") {
       if (type === "detail") {
       } else {
-        getNoticeList(query.page ? query.page : 1).then((resp) => {
+        getEventList(query.page ? query.page : 1).then((resp) => {
           if (resp && resp.data) {
             setPayload(resp.data.data);
             setTotalCount(resp.data.totalCount);
@@ -31,16 +31,16 @@ const Notice = () => {
 
   const Content = () => {
     if (!params.id)
-      return <NoticeList payload={payload} totalCount={totalCount} />;
+      return <EventList payload={payload} totalCount={totalCount} />;
     return null;
   };
 
   return (
     <CommonStyle.SubTitleSection>
       <CommonStyle.Container>
-        <h2>공지사항</h2>
+        <h2>이벤트</h2>
         <p className="sub-title">
-          팔복의 다양한 안내사항을 신속히 알려드립니다.
+          팔복에서 진행하는 이벤트에 참여하시면 많은 혜택이 있습니다.
         </p>
 
         <Content />
@@ -49,4 +49,4 @@ const Notice = () => {
   );
 };
 
-export default Notice;
+export default Event;

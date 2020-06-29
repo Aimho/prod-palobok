@@ -1,6 +1,6 @@
 import React from "react";
 
-import useRouter from "../../hooks/useRouter";
+import useRouter from "../../utils/useRouter";
 
 import Introduce from "./Introduce";
 import Story from "./Story";
@@ -29,8 +29,7 @@ const Brand = () => {
     if (params.type.toLowerCase() === "story") return <Story />;
     if (params.type.toLowerCase() === "store") return <Store />;
 
-    // Todo 404 페이지
-    linkTo("/brand/introduce");
+    linkTo("/notfound");
     return null;
   };
 

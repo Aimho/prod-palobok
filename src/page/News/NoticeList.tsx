@@ -24,7 +24,7 @@ const NoticeList = (props: NoticeListProps) => {
     { label: "조회수", key: "view" },
   ];
 
-  if (props.totalCount === 0) {
+  if (props.totalCount === 0 || !props.payload) {
     return (
       <CommonStyle.NotFoundData>공지사항이 없습니다.</CommonStyle.NotFoundData>
     );
@@ -32,7 +32,7 @@ const NoticeList = (props: NoticeListProps) => {
 
   return (
     <React.Fragment>
-      <E.NoticeTable columns={columns} dataSource={props.payload} />
+      <E.Table type="notice" columns={columns} dataSource={props.payload} />
       <E.Pagination totalCount={props.totalCount / 10} />
     </React.Fragment>
   );

@@ -71,27 +71,54 @@ const Table = styled.table`
       }
     }
   }
-`;
 
-const NoticeTable = styled(Table)`
-  tbody {
-    td {
-      @media screen and (max-width: 768px) {
-        margin: 5px 10px;
-        padding: 0px;
-        border-bottom: 0px;
-        font-size: 12px;
-        line-height: 12px;
-        &.writer {
-          position: absolute;
-          bottom: 10px;
-          left: 70px;
-          padding-left: 10px;
-          border-left: 1px solid #e8e8e8;
+  /** 공지사항, 고객문의 리스트 */
+  &.notice tbody td,
+  &.contact tbody td {
+    @media screen and (max-width: 768px) {
+      margin: 5px 10px;
+      padding: 0px;
+      border-bottom: 0px;
+      font-size: 12px;
+      line-height: 12px;
+      &.writer {
+        position: absolute;
+        bottom: 10px;
+        left: 70px;
+        padding-left: 10px;
+        border-left: 1px solid #e8e8e8;
+      }
+      &.number,
+      &.view {
+        display: none;
+      }
+    }
+  }
+
+  &.event {
+    thead th.title {
+      text-align: left;
+    }
+    tbody {
+      tr {
+        @media screen and (max-width: 768px) {
+          justify-content: space-between;
         }
-        &.number,
-        &.view {
-          display: none;
+      }
+      td {
+        @media screen and (max-width: 768px) {
+          margin: 5px 10px;
+          padding: 0px;
+          border-bottom: 0px;
+          font-size: 12px;
+          line-height: 12px;
+          &.banner,
+          &.banner img {
+            width: 100%;
+          }
+        }
+        span.inprogress {
+          color: #b41118;
         }
       }
     }
@@ -156,7 +183,7 @@ const ContactContainer = styled(CommonStyle.Container)`
   position: relative;
   a.button {
     position: absolute;
-    right: 0;
+    right: 30px;
     top: 0;
     border: 1px solid #b41118;
     padding: 12px 30px;
@@ -164,6 +191,7 @@ const ContactContainer = styled(CommonStyle.Container)`
     font-weight: 500;
     @media screen and (max-width: 768px) {
       position: relative;
+      right: auto;
       padding: 10px 30px;
       font-size: 14px;
       margin-bottom: 30px;
@@ -177,8 +205,6 @@ export {
   Banner,
   Table,
   Pagination,
-  // 공지사항 페이지
-  NoticeTable,
   // 고객문의 페이지
   ContactContainer,
 };

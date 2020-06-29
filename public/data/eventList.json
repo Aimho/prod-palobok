@@ -1,0 +1,85 @@
+{
+  "totalCount": 10,
+  "data": [
+    {
+      "id": 144148,
+      "banner": "http://placehold.it/260x80?text=sample",
+      "title": "2020년 설날 이벤트",
+      "termStart": "2020.01.20",
+      "termEnd": "2020.01.27",
+      "status": "inprogress"
+    },
+    {
+      "id": 144473,
+      "banner": "http://placehold.it/260x80?text=sample",
+      "title": "2020년 설날 이벤트",
+      "termStart": "2020.01.20",
+      "termEnd": "2020.01.27",
+      "status": "inprogress"
+    },
+    {
+      "id": 144151,
+      "banner": "http://placehold.it/260x80?text=sample",
+      "title": "2020년 설날 이벤트",
+      "termStart": "2020.01.20",
+      "termEnd": "2020.01.27",
+      "status": "inprogress"
+    },
+    {
+      "id": 268355,
+      "banner": "http://placehold.it/260x80?text=sample",
+      "title": "2020년 설날 이벤트",
+      "termStart": "2020.01.20",
+      "termEnd": "2020.01.27",
+      "status": "inprogress"
+    },
+    {
+      "id": 39863,
+      "banner": "http://placehold.it/260x80?text=sample",
+      "title": "2020년 설날 이벤트",
+      "termStart": "2020.01.20",
+      "termEnd": "2020.01.27",
+      "status": "inprogress"
+    },
+    {
+      "id": 147023,
+      "banner": "http://placehold.it/260x80?text=sample",
+      "title": "2020년 설날 이벤트",
+      "termStart": "2020.01.20",
+      "termEnd": "2020.01.27",
+      "status": "end"
+    },
+    {
+      "id": 40850,
+      "banner": "http://placehold.it/260x80?text=sample",
+      "title": "2020년 설날 이벤트",
+      "termStart": "2020.01.20",
+      "termEnd": "2020.01.27",
+      "status": "end"
+    },
+    {
+      "id": 41254,
+      "banner": "http://placehold.it/260x80?text=sample",
+      "title": "2020년 설날 이벤트",
+      "termStart": "2020.01.20",
+      "termEnd": "2020.01.27",
+      "status": "end"
+    },
+    {
+      "id": 41303,
+      "banner": "http://placehold.it/260x80?text=sample",
+      "title": "2020년 설날 이벤트",
+      "termStart": "2020.01.20",
+      "termEnd": "2020.01.27",
+      "status": "end"
+    },
+    {
+      "id": 41356,
+      "banner": "http://placehold.it/260x80?text=sample",
+      "title": "2020년 설날 이벤트",
+      "termStart": "2020.01.20",
+      "termEnd": "2020.01.27",
+      "status": "end"
+    }
+  ]
+}

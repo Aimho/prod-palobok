@@ -1,7 +1,7 @@
 import React, { useState, useEffect, MouseEvent } from "react";
 import { Link } from "react-router-dom";
 
-import useRouter from "../hooks/useRouter";
+import useRouter from "../utils/useRouter";
 import * as S from "./HeaderStyle";
 import * as Icon from "../icon";
 

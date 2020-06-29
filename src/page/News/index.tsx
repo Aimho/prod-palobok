@@ -1,8 +1,9 @@
 import React from "react";
 
-import useRouter from "../../hooks/useRouter";
+import useRouter from "../../utils/useRouter";
 
 import Notice from "./Notice";
+import Event from "./Event";
 import Contact from "./Contact";
 
 import * as S from "./style";
@@ -25,11 +26,10 @@ const News = () => {
     }
 
     if (params.type.toLowerCase() === "notice") return <Notice />;
-    if (params.type.toLowerCase() === "event") return <Notice />;
+    if (params.type.toLowerCase() === "event") return <Event />;
     if (params.type.toLowerCase() === "contact") return <Contact />;
 
-    // Todo 404 페이지
-    linkTo("/brand/introduce");
+    linkTo("/notfound");
     return null;
   };
 
