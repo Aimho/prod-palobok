@@ -7,8 +7,8 @@ const Footer = () => {
   const Sitemap = () => {
     const sitemapList = [
       { label: "회사소개", link: "/brand/introduce", target: "_self" },
-      { label: "공지사항", link: "/", target: "_self" },
-      { label: "고객문의", link: "/", target: "_self" },
+      { label: "공지사항", link: "/news/notice", target: "_self" },
+      { label: "고객문의", link: "/news/contact", target: "_self" },
       { label: "찾아오시는 길", link: "/", target: "_self" },
       {
         label: "쇼핑몰 바로가기",
