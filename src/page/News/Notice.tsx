@@ -1,38 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import { getNoticeList } from "../../api/newsApi";
-import useRouter, { searchQueryToObject } from "../../utils/useRouter";
+import useRouter from "../../utils/useRouter";
 
 import * as CommonStyle from "../style";
 import NoticeList from "./NoticeList";
+import NoticeDetail from "./NoticeDetail";
 
 const Notice = () => {
-  const { params, search } = useRouter();
-  const [payload, setPayload] = useState([]);
-  const [totalCount, setTotalCount] = useState(0);
-
-  useEffect(() => {
-    const query = search ? searchQueryToObject(search) : { page: 1 };
-
-    function getApi(type: "detail" | "list") {
-      if (type === "detail") {
-      } else {
-        getNoticeList(query.page ? query.page : 1).then((resp) => {
-          if (resp && resp.data) {
-            setPayload(resp.data.data);
-            setTotalCount(resp.data.totalCount);
-          }
-        });
-      }
-    }
-
-    getApi(params.id ? "detail" : "list");
-  }, [params, search]);
+  const { params } = useRouter();
 
   const Content = () => {
-    if (!params.id)
-      return <NoticeList payload={payload} totalCount={totalCount} />;
-    return null;
+    if (!params.id) return <NoticeList />;
+    return <NoticeDetail />;
   };
 
   return (

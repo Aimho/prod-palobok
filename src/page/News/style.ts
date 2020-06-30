@@ -179,6 +179,108 @@ const Pagination = styled.nav`
   }
 `;
 
+const DescriptionContainer = styled.section`
+  border-top: solid 1px #e8e8e8;
+  @media screen and (max-width: 768px) {
+    padding: 5px 0;
+    border-top: solid 4px #e8e8e8;
+    border-bottom: solid 1px #e8e8e8;
+  }
+`;
+
+interface DescriptionItemProps {
+  colspan: number;
+}
+const DescriptionItem = styled.div.attrs((props: DescriptionItemProps) => ({
+  colspan: props.colspan || 1,
+}))`
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: ${(props) => `calc(100% / ${props.colspan})`};
+  @media screen and (max-width: 768px) {
+    width: ${(props) => (props.colspan === 1 ? "100%" : "auto")};
+  }
+  > * {
+    padding: 16px 18px;
+    border-bottom: solid 1px #e8e8e8;
+    font-size: ${(props) => (props.colspan === 1 ? "16px" : "14px")};
+    line-height: 24px;
+    width: calc(100% - 120px);
+    @media screen and (max-width: 768px) {
+      padding: 5px 10px;
+      width: 100%;
+      font-size: ${(props) => (props.colspan === 1 ? "16px" : "12px")};
+      color: ${(props) => (props.colspan === 1 ? "#000" : "#999")};
+      border-bottom: 0px;
+    }
+    &.column {
+      width: 120px;
+      background: #f6f6f6;
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+`;
+
+const ContentSection = styled.section`
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #e8e8e8;
+  @media screen and (max-width: 768px) {
+    padding: 0px;
+    border: 0px;
+  }
+`;
+
+const NavPost = styled.nav`
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 14px;
+  line-height: 20px;
+  color: #666;
+  @media screen and (max-width: 768px) {
+    padding: 10px 24px;
+  }
+  .button {
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000;
+    margin-left: 30px;
+    @media screen and (max-width: 768px) {
+      font-size: 14px;
+      line-height: 20px;
+    }
+    &:hover {
+      text-decoration: underline;
+      color: #b41118;
+    }
+    &.disabled:hover {
+      cursor: default;
+      text-decoration: none;
+      color: #000;
+    }
+  }
+`;
+
+const MoveToListBtn = styled.button`
+  margin-top: 60px;
+  padding: 12px 30px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: #d4d4d4;
+  @media screen and (max-width: 768px) {
+    margin-top: 20px;
+    padding: 10px 30px;
+    width: 100%;
+  }
+`;
+
 const ContactContainer = styled(CommonStyle.Container)`
   position: relative;
   a.button {
@@ -205,6 +307,11 @@ export {
   Banner,
   Table,
   Pagination,
+  DescriptionContainer,
+  DescriptionItem,
+  ContentSection,
+  NavPost,
+  MoveToListBtn,
   // 고객문의 페이지
   ContactContainer,
 };

@@ -108,4 +108,56 @@ const Table = (props: TableProps) => {
   );
 };
 
-export { Table, Pagination };
+export interface DescriptionProps {
+  dataSource: {
+    column: string;
+    label: string | number;
+    colspan: number;
+    hiddenMobile?: boolean;
+  }[];
+}
+const Description = (props: DescriptionProps) => {
+  return (
+    <S.DescriptionContainer>
+      {props.dataSource.map((item, index) => (
+        <S.DescriptionItem
+          className={item.hiddenMobile ? "visible-desktop" : ""}
+          colspan={item.colspan}
+          key={index}
+        >
+          <span className="column">{item.column}</span>
+          <span>{item.label}</span>
+        </S.DescriptionItem>
+      ))}
+    </S.DescriptionContainer>
+  );
+};
+
+interface NavPostBtnProps {
+  type: "next" | "prev";
+  title?: string;
+  link?: string;
+}
+const NavPostBtn = (props: NavPostBtnProps) => {
+  const icon =
+    props.type === "next" ? <Icon.ExpandLess /> : <Icon.ExpandMore />;
+  const typeLabel = props.type === "next" ? "다음 글" : "이전 글";
+  const Button = () => {
+    if (!props.title || !props.link)
+      return <span className="button disabled">{typeLabel}이 없습니다.</span>;
+    return (
+      <Link className="button" to={props.link}>
+        {props.title}
+      </Link>
+    );
+  };
+
+  return (
+    <S.NavPost>
+      {typeLabel} {icon}
+      <Button />
+    </S.NavPost>
+  );
+};
+
+export { Table, Pagination, Description, NavPostBtn };
