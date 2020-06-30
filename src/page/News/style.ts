@@ -215,6 +215,8 @@ const DescriptionItem = styled.div.attrs((props: DescriptionItemProps) => ({
     }
     &.column {
       width: 120px;
+      font-size: 16px;
+      line-height: 24px;
       background: #f6f6f6;
       @media screen and (max-width: 768px) {
         display: none;
