@@ -82,31 +82,31 @@ const ProductCard = () => {
       img: require("../../img/main-product-sagol.png"),
       titleKor: "사골진국",
       titleEng: "Sagol Jinguk",
-      link: "/",
+      link: "/product/list",
     },
     {
       img: require("../../img/main-product-dogani.png"),
       titleKor: "도가니탕",
       titleEng: "Dogani-Tang",
-      link: "/",
+      link: "/product/list",
     },
     {
       img: require("../../img/main-product-seolleong.png"),
       titleKor: "설렁탕",
       titleEng: "Seolleong-Tang ",
-      link: "/",
+      link: "/product/list",
     },
     {
       img: require("../../img/main-product-ox.png"),
       titleKor: "우족탕",
       titleEng: "Ox Foot Soup",
-      link: "/",
+      link: "/product/list",
     },
     {
       img: require("../../img/main-product-sagol-large.png"),
       titleKor: "사골 대형 포장팩",
       titleEng: "Sagol Large Packing Pack",
-      link: "/",
+      link: "/product/list",
     },
   ];
 

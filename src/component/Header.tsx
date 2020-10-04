@@ -20,7 +20,6 @@ const Header = () => {
     소식: [
       { label: "공지사항", link: "/news/notice" },
       { label: "이벤트", link: "/news/event" },
-      { label: "고객문의", link: "/news/contact" },
     ],
   };
 
